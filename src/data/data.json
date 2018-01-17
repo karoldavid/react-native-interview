@@ -1,0 +1,60 @@
+[
+    {
+        title: "React Native",
+        questions: [
+            {
+                question:
+                    "What is the difference between React and React Native?",
+                answer:
+                    "ReactJs is a JavaScript Library used for developing apps in HTML5 using JavaScript as the developing language and React Native is used to develop native mobile apps using JavaScript as the development language.",
+                source:
+                    "http://www.punch.cool/community/questions-answers/engineering/react-native/"
+            },
+            {
+                question: "Is React Native a native Mobile App?",
+                answer:
+                    "Yes, React Native Compiles a native mobile app using native app components. It’s neither a Hybrid Mobile app that uses WebView to run the HTML5 app or a mobile web app. React Native builds a real mobile app that’s indistinguishable from an app built using Objective-C or Java",
+                source:
+                    "http://www.punch.cool/community/questions-answers/engineering/react-native/"
+            },
+            {
+                question:
+                    "Can we use React Native code alongside with react native?",
+                answer:
+                    "Yes, we can use Native code alongside JavaScript to get our tasks done, so the limitations in previous such platforms such as Titanium will be no more.",
+                source:
+                    "http://www.punch.cool/community/questions-answers/engineering/react-native/"
+            },
+            {
+                question: "Do we use the same code base for Android and IOS?",
+                answer:
+                    "Yes, we use the same code base for Android and IOS and React take cares of the native components translations. For example: A React Native ScrollView uses native UiScrollView on IOS and ScrollView on Android.",
+                source:
+                    "http://www.punch.cool/community/questions-answers/engineering/react-native/"
+            },
+            {
+                question:
+                    "Is React Native like other Hybrid Apps which are actually slower than Native mobile apps?",
+                answer:
+                    "React Native compiles a real mobile and is engineered for high performance, a good example of a high performance app is Facebook IOS app; it uses React Native and IOS users have a pretty good idea of how smoothly the Facebook app works on IOS devices.",
+                source:
+                    "http://www.punch.cool/community/questions-answers/engineering/react-native/"
+            }
+        ]
+    },
+    {
+        title: "React",
+        questions: [
+            {
+                question: "What is React?",
+                answer: "A library for managing user interfaces",
+                source: ""
+            },
+            {
+                question: "Where do you make Ajax requests in React?",
+                answer: "The componentDidMount lifecycle event",
+                source: ""
+            }
+        ]
+    }
+]
