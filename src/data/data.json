@@ -56,5 +56,17 @@
                 source: ""
             }
         ]
+    },
+    {
+        title: "Expo",
+        questions: []
+    },
+    {
+        title: "Android Studio",
+        questions: []
+    },
+    {
+        title: "Xcode",
+        questions: []
     }
 ]
