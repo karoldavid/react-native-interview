@@ -19,7 +19,7 @@ class DeckListScreen extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<DeckList data={data} />
+				<DeckList data={data} onPress={() => this.props.navigation.navigate("deck")}/>
 			</View>
 		);
 	}

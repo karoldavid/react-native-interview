@@ -11,7 +11,7 @@ class DeckList extends Component {
 		return (
 			<DeckListItem
 				item={item}
-				onPress={() => console.log("deck pressed")}
+				onPress={this.props.onPress}
 			/>
 		);
 	};
