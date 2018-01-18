@@ -17,8 +17,9 @@ class DeckScreen extends Component {
 
 		this.setState({ fontLoaded: true });
 	}
+	
 	render() {
-		const { title, questions } = this.props.deck;
+		const { title, questions } = this.props.selected;
 		return (
 			<View style={styles.container}>
 				{this.state.fontLoaded ? (
@@ -47,7 +48,7 @@ class DeckScreen extends Component {
 
 const mapStateToProps = ({ decks: { selected } }) => {
 	return {
-		deck: selected
+		selected
 	};
 };
 
