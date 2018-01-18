@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { Text, View } from "react-native";
 import { styles } from "../utils/styles";
 
-class DeckScreen extends Component {
+class WelcmomeScreen extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text>DeckScreen</Text>
+				<Text>WelcomeScreen</Text>
 			</View>
 		);
 	}
 }
 
-export default DeckScreen;
+export default WelcmomeScreen;

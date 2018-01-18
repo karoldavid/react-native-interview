@@ -1,9 +1,14 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
-import DeckScreen from "./src/screens/DeckScreen";
+import { StyleSheet, View, Text } from "react-native";
+import { MainNavigator } from "./src/utils/navigation";
+import { styles } from "./src/utils/styles";
 
 export default class App extends Component {
   render() {
-    return <DeckScreen />;
+    return (
+      <View style={{ flex: 1 }}>
+        <MainNavigator />
+      </View>
+    );
   }
 }

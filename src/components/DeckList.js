@@ -29,7 +29,7 @@ class DeckList extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<List>
+				<List containerStyle={{ marginTop: 0 }}>
 					<FlatList
 						data={this.props.data}
 						initialNumToRender={10}
