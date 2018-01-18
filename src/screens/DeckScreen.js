@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Text, View } from "react-native";
 import { Button, Card } from "react-native-elements";
 import { styles } from "../utils/styles";
@@ -17,16 +18,13 @@ class DeckScreen extends Component {
 		this.setState({ fontLoaded: true });
 	}
 	render() {
+		const { title, questions } = this.props.deck;
 		return (
 			<View style={styles.container}>
 				{this.state.fontLoaded ? (
-					<Card
-						title="Deck Screen"
-						image={require("../img/react.png")}
-					>
-						<Text style={{ marginBottom: 10 }}>
-							The idea with React Native Elements is more about
-							component structure than actual design.
+					<Card title={title} image={require("../img/react.png")}>
+						<Text style={{ marginBottom: 10, textAlign: "center" }}>
+							{`${questions.length} Questions`}
 						</Text>
 						<Button
 							icon={{ name: "code" }}
@@ -47,4 +45,10 @@ class DeckScreen extends Component {
 	}
 }
 
-export default DeckScreen;
+const mapStateToProps = ({ decks: { selected } }) => {
+	return {
+		deck: selected
+	};
+};
+
+export default connect(mapStateToProps)(DeckScreen);
