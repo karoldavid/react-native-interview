@@ -1,9 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { View } from "react-native";
 import { Button, Icon } from "react-native-elements";
 import DeckList from "../components/DeckList";
 import { styles } from "../utils/styles";
-import data from "../data/data.json";
 
 class DeckListScreen extends Component {
 	static navigationOptions = ({ navigation }) => {
@@ -19,10 +19,16 @@ class DeckListScreen extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<DeckList data={data} onPress={() => this.props.navigation.navigate("deck")}/>
+				<DeckList data={this.props.decks} onPress={() => this.props.navigation.navigate("deck")}/>
 			</View>
 		);
 	}
 }
 
-export default DeckListScreen;
+const mapStateToProps = (state) => {
+	return {
+		decks: state.decks.list
+	}
+}
+
+export default connect(mapStateToProps)(DeckListScreen);
