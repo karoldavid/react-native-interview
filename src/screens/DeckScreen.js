@@ -1,10 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Text, View } from "react-native";
-import { Button, Card } from "react-native-elements";
+import { Button, Card, Icon } from "react-native-elements";
 import { styles } from "../utils/styles";
+import { white } from "../utils/colors";
+import { IconButton } from "../components/common";
 
 class DeckScreen extends Component {
+	static navigationOptions = ({ navigation }) => {
+		return {
+			title: "Deck View",
+			visible: true,
+			headerTintColor: "white",
+			headerStyle: {
+				backgroundColor: "blue"
+			},
+			headerRight: (
+				<IconButton
+					onPress={() => console.log("Icon Pressed")}
+					ionicon="md-add-circle"
+					size={30}
+					color={white}
+				/>
+			)
+		};
+	};
 	render() {
 		const { title, questions } = this.props.selected;
 		return (

@@ -15,5 +15,9 @@ export const styles = StyleSheet.create({
 	listItemContainer: {
 		borderBottomWidth: 0,
 		width: Dimensions.get("window").width
+	},
+	iconButton: {
+		paddingLeft: 20,
+		paddingRight: 20
 	}
 });
