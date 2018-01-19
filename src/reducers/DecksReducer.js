@@ -13,7 +13,7 @@ export default function(state = INITIAL_STATE, action) {
 		case SAVE_DECK:
 			return {
 				...state,
-				list: state.list.concat(action.payload)
+				list: [...state.list, action.payload]
 			};
 		default:
 			return state;
