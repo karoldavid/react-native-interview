@@ -4,11 +4,12 @@ import DeckListScreen from "../screens/DeckListScreen";
 import DeckScreen from "../screens/DeckScreen";
 import QuizScreen from "../screens/QuizScreen";
 import SettingsScreen from "../screens/SettingsScreen";
+import AddDeckScreen from "../screens/AddDeckScreen";
 
 export const MainNavigator = TabNavigator(
   {
-    welcome: { screen: WelcomeScreen },
-    main: {
+    howTo: { screen: WelcomeScreen },
+    decks: {
       screen: StackNavigator({
         decks: { screen: DeckListScreen },
         deck: { screen: DeckScreen },
@@ -20,6 +21,11 @@ export const MainNavigator = TabNavigator(
             settings: { screen: SettingsScreen }
           })
         }
+      })
+    },
+    addDeck: {
+      screen: StackNavigator({
+        addDeck: { screen: AddDeckScreen, title: "Add Deck" }
       })
     }
   },
