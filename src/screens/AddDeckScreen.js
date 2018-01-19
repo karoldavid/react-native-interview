@@ -9,7 +9,7 @@ import {
 import { Button, Icon } from "react-native-elements";
 import { styles } from "../utils/styles";
 import { blueMagenta } from "../utils/colors";
-import DeckForm from "../components/common/DeckForm";
+import Form from "../components/common/Form";
 import * as actions from "../actions";
 
 class AddDeckScreen extends Component {
@@ -50,7 +50,7 @@ class AddDeckScreen extends Component {
 			<View style={styles.container}>
 				<KeyboardAvoidingView behavior="padding">
 					<ScrollView>
-						<DeckForm
+						<Form
 							data={deck}
 							inputs={FORM_INPUTS}
 							onChange={this.onChange}

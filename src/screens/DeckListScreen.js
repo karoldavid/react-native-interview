@@ -17,7 +17,7 @@ class DeckListScreen extends Component {
 		};
 	};
 
-	onPress = item => {
+	onPress = (item) => {
 		this.props.selectDeck(item)
 		this.props.navigation.navigate("deck");
 	};

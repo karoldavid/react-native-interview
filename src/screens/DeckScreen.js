@@ -26,7 +26,7 @@ class DeckScreen extends Component {
 		};
 	};
 	render() {
-		const { title, questions } = this.props.selected;
+		const { questions, title } = this.props;
 		return (
 			<View style={styles.container}>
 				<Card title={title} image={require("../img/react.png")}>
@@ -51,9 +51,13 @@ class DeckScreen extends Component {
 	}
 }
 
-const mapStateToProps = ({ decks: { selected } }) => {
+const mapStateToProps = ({ decks: { list, selected } }) => {
+	const { questions, title } = list.find(
+		deck => deck.title === selected.title
+	);
 	return {
-		selected
+		questions,
+		title
 	};
 };
 
