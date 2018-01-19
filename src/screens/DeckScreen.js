@@ -17,7 +17,7 @@ class DeckScreen extends Component {
 			},
 			headerRight: (
 				<IconButton
-					onPress={() => console.log("Icon Pressed")}
+					onPress={() => navigation.navigate("addQuestion")}
 					ionicon="md-add-circle"
 					size={30}
 					color={white}

@@ -5,6 +5,7 @@ import DeckScreen from "../screens/DeckScreen";
 import QuizScreen from "../screens/QuizScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import AddDeckScreen from "../screens/AddDeckScreen";
+import AddQuestionScreen from "../screens/AddQuestionScreen";
 
 export const MainNavigator = TabNavigator(
   {
@@ -13,6 +14,7 @@ export const MainNavigator = TabNavigator(
       screen: StackNavigator({
         decks: { screen: DeckListScreen },
         deck: { screen: DeckScreen },
+        addQuestion: { screen: AddQuestionScreen },
         quiz: {
           screen: StackNavigator({
             quiz: {
