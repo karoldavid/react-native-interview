@@ -4,6 +4,7 @@ export const blueMagenta = "#7a42f4";
 export const darkCyan = "#009688";
 export const darkOrangishGray = "#595856";
 export const deepSkyBlue = "#03A9F4";
+export const lightGray = "#d3d3d3";
 export const lightPurp = "#7c53c3";
 export const lightSlateBlue = "#9966ff";
 export const pacificBlue = "#0288D1";
