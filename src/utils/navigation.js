@@ -14,22 +14,18 @@ export const MainNavigator = TabNavigator(
       screen: StackNavigator({
         decks: { screen: DeckListScreen },
         deck: { screen: DeckScreen },
+        addDeck: { screen: AddDeckScreen, title: "Add Deck" },
         addQuestion: { screen: AddQuestionScreen },
         quiz: {
           screen: StackNavigator({
             quiz: {
               screen: QuizScreen
             },
-            settings: { screen: SettingsScreen }
           })
         }
       })
     },
-    addDeck: {
-      screen: StackNavigator({
-        addDeck: { screen: AddDeckScreen, title: "Add Deck" }
-      })
-    }
+    settings: { screen: SettingsScreen }
   },
   {
     navigationOptions: {

@@ -5,20 +5,31 @@ import { Button, Icon } from "react-native-elements";
 import DeckList from "../components/DeckList";
 import { styles } from "../utils/styles";
 import * as actions from "../actions";
+import { IconButton } from "../components/common";
+import { white } from "../utils/colors";
 
 class DeckListScreen extends Component {
 	static navigationOptions = ({ navigation }) => {
 		return {
+			title: "Decks",
 			visible: true,
 			headerTintColor: "white",
 			headerStyle: {
 				backgroundColor: "blue"
-			}
+			},
+			headerRight: (
+				<IconButton
+					onPress={() => navigation.navigate("addDeck")}
+					ionicon="md-add-circle"
+					size={30}
+					color={white}
+				/>
+			)
 		};
 	};
 
-	onPress = (item) => {
-		this.props.selectDeck(item)
+	onPress = item => {
+		this.props.selectDeck(item);
 		this.props.navigation.navigate("deck");
 	};
 
