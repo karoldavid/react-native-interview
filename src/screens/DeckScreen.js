@@ -9,7 +9,7 @@ import { IconButton } from "../components/common";
 class DeckScreen extends Component {
 	static navigationOptions = ({ navigation }) => {
 		return {
-			title: "Deck View",
+			title: "Deck",
 			visible: true,
 			headerTintColor: "white",
 			headerStyle: {
@@ -44,6 +44,7 @@ class DeckScreen extends Component {
 							marginBottom: 0
 						}}
 						title="Start Quiz"
+						onPress={() => this.props.navigation.navigate("quiz")}
 					/>
 				</Card>
 			</View>
