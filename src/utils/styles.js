@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { pacificBlue } from "./colors";
 
 export const styles = StyleSheet.create({
 	container: {
@@ -19,5 +20,21 @@ export const styles = StyleSheet.create({
 	iconButton: {
 		paddingLeft: 20,
 		paddingRight: 20
+	},
+	slideContainer: {
+		justifyContent: "center",
+		alignItems: "center",
+		width: Dimensions.get("window").width
+	},
+	slideText: {
+		fontSize: 30,
+		textAlign: "center",
+		color: "white"
+	},
+	buttonContainer: {
+		marginTop: 15
+	},
+	button: {
+		backgroundColor: pacificBlue
 	}
 });

@@ -9,7 +9,7 @@ import AddQuestionScreen from "../screens/AddQuestionScreen";
 
 export const MainNavigator = TabNavigator(
   {
-    howTo: { screen: WelcomeScreen },
+    Welcome: { screen: WelcomeScreen },
     decks: {
       screen: StackNavigator({
         decks: { screen: DeckListScreen },

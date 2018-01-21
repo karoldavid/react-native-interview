@@ -1,15 +1,22 @@
+import _ from "lodash";
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, View, Text, AsyncStorage } from "react-native";
 import { styles } from "../utils/styles";
+import { SLIDE_DATA } from "../utils/consts";
+import Slides from "../components/Slides";
 
-class WelcmomeScreen extends Component {
+class WelcomeScreen extends Component {
+	onSlidesComplete = () => {
+		this.props.navigation.navigate("decks");
+	};
+
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text>WelcomeScreen</Text>
+				<Slides data={SLIDE_DATA} onComplete={this.onSlidesComplete} />
 			</View>
 		);
 	}
 }
 
-export default WelcmomeScreen;
+export default WelcomeScreen;
