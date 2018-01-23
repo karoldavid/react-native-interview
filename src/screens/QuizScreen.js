@@ -29,10 +29,10 @@ class QuizScreen extends Component {
 	};
 
 	renderCard(item) {
-		const { question, answer } = item;
+		const { question, answer, id } = item;
 
 		return (
-			<Card key={question} title={question}>
+			<Card key={id} title={question}>
 				<View style={{ marginTop: 20, marginBottom: 20 }}>
 					<Text style={{ textAlign: "center" }}>
 						Know the Answer?
@@ -72,8 +72,8 @@ class QuizScreen extends Component {
 					data={this.props.questions}
 					renderCard={this.renderCard}
 					renderNoMoreCards={this.renderNoMoreCards}
-					keyProp="jobkey"
-					onSwipeRight={() => console.log("swipe right")}
+					keyProp="id"
+					onSwipeRight={question => this.props.knowAnswer(question)}
 				/>
 				<Card title="Instructions">
 					<Text style={{ textAlign: "center" }}>
@@ -97,4 +97,4 @@ const mapStateToProps = ({ decks: { list, selected } }) => {
 	};
 };
 
-export default connect(mapStateToProps)(QuizScreen);
+export default connect(mapStateToProps, actions)(QuizScreen);

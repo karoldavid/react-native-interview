@@ -1,8 +1,16 @@
 import { SELECT_DECK, SAVE_DECK, SAVE_QUESTION } from "../actions/types";
 import data from "../data/data.json";
 
+const decks = data.map(deck => {
+	deck.questions.map((question, index) => {
+		question.id = index;
+		return question;
+	});
+	return deck;
+});
+
 const INITIAL_STATE = {
-	list: data,
+	list: decks,
 	selected: null
 };
 
