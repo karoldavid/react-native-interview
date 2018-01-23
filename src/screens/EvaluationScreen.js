@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Text, View } from "react-native";
 import { styles } from "../utils/styles";
 
@@ -23,4 +24,12 @@ class EvaluationScreen extends Component {
 	}
 }
 
-export default EvaluationScreen;
+const mapStateToProps = ({ quiz: { know, dontKnow } }) => {
+	console.log(dontKnow)
+	return {
+		know,
+		dontKnow
+	};
+};
+
+export default connect(mapStateToProps)(EvaluationScreen);

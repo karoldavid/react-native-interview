@@ -7,3 +7,4 @@ export const QUESTION_CHANGE = "QUESTION_CHANGE";
 export const SAVE_QUESTION =  "SAVE_QUESTION";
 
 export const KNOW_ANSWER = "KNOW_ANSWER";
+export const DONT_KNOW_ANSWER ="DONT_KNOW_ANSWER";

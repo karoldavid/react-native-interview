@@ -74,6 +74,9 @@ class QuizScreen extends Component {
 					renderNoMoreCards={this.renderNoMoreCards}
 					keyProp="id"
 					onSwipeRight={question => this.props.knowAnswer(question)}
+					onSwipeLeft={question =>
+						this.props.dontKnowAnswer(question)
+					}
 				/>
 				<Card title="Instructions">
 					<Text style={{ textAlign: "center" }}>
