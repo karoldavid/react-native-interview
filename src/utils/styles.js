@@ -36,5 +36,15 @@ export const styles = StyleSheet.create({
 	},
 	button: {
 		backgroundColor: pacificBlue
+	},
+	quizContainer: {
+		marginTop: 10,
+		flex: 1,
+		backgroundColor: "#fff"
+	},
+	detailWrapper: {
+		flexDirection: "row",
+		justifyContent: "space-around",
+		marginBottom: 10
 	}
 });
