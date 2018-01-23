@@ -8,6 +8,7 @@ import {
 	Platform,
 	Dimensions
 } from "react-native";
+import { Bar } from "react-native-progress";
 import { styles } from "../utils/styles";
 import Swipe from "../components/Swipe";
 import { Button, Card, Icon } from "react-native-elements";
@@ -61,15 +62,19 @@ class QuizScreen extends Component {
 	};
 
 	render() {
+		const { questions, answered } = this.props;
+		const getProgress = () => {
+			return answered * (100 / questions.length) / 100;
+		};
 		return (
-			<View
-				style={[
-					styles.quizContainer,
-					{ justifyContent: "space-around" }
-				]}
-			>
+			<View style={styles.quizContainer}>
+				<Bar
+					progress={getProgress()}
+					width={Dimensions.get("window").width}
+				/>
+
 				<Swipe
-					data={this.props.questions}
+					data={questions}
 					renderCard={this.renderCard}
 					renderNoMoreCards={this.renderNoMoreCards}
 					keyProp="id"
@@ -83,6 +88,7 @@ class QuizScreen extends Component {
 						})
 					}
 				/>
+
 				<Card title="Instructions">
 					<Text style={{ textAlign: "center" }}>
 						Use pen and paper. If you know the answer, write it down
@@ -95,13 +101,15 @@ class QuizScreen extends Component {
 	}
 }
 
-const mapStateToProps = ({ decks: { list, selected } }) => {
+const mapStateToProps = ({ decks: { list, selected }, quiz: { answered } }) => {
 	const { questions, title } = list.find(
 		deck => deck.title === selected.title
 	);
+
 	return {
 		questions,
-		title
+		title,
+		answered
 	};
 };
 
