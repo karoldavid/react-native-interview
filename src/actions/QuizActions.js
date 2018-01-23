@@ -1,15 +1,11 @@
-import { KNOW_ANSWER, DONT_KNOW_ANSWER } from "./types";
+import { SORT_ANSWER } from "./types";
 
-export const knowAnswer = question => {
+export const sortAnswer = ({ prop, value }) => {
 	return {
-		type: KNOW_ANSWER,
-		payload: question
-	};
-};
-
-export const dontKnowAnswer = question => {
-	return {
-		type: DONT_KNOW_ANSWER,
-		payload: question
+		type: SORT_ANSWER,
+		payload: {
+			prop,
+			value
+		}
 	};
 };

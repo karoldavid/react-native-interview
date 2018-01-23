@@ -73,9 +73,14 @@ class QuizScreen extends Component {
 					renderCard={this.renderCard}
 					renderNoMoreCards={this.renderNoMoreCards}
 					keyProp="id"
-					onSwipeRight={question => this.props.knowAnswer(question)}
+					onSwipeRight={question =>
+						this.props.sortAnswer({ prop: "know", value: question })
+					}
 					onSwipeLeft={question =>
-						this.props.dontKnowAnswer(question)
+						this.props.sortAnswer({
+							prop: "dontKnow",
+							value: question
+						})
 					}
 				/>
 				<Card title="Instructions">

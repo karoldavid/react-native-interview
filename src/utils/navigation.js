@@ -6,7 +6,7 @@ import QuizScreen from "../screens/QuizScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import AddDeckScreen from "../screens/AddDeckScreen";
 import AddQuestionScreen from "../screens/AddQuestionScreen";
-import KnowScreen from "../screens/DontKnowScreen";
+import KnowScreen from "../screens/KnowScreen";
 import DontKnowScreen from "../screens/DontKnowScreen";
 import SummaryScreen from "../screens/SummaryScreen";
 
