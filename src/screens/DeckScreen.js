@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Text, View } from "react-native";
+import { Dimensions, Text, View } from "react-native";
 import { Button, Card, Icon } from "react-native-elements";
 import { styles } from "../utils/styles";
 import { white } from "../utils/colors";
@@ -29,23 +29,43 @@ class DeckScreen extends Component {
 		const { questions, title } = this.props;
 		return (
 			<View style={styles.container}>
-				<Card title={title} image={require("../img/react.png")}>
-					<Text style={{ marginBottom: 10, textAlign: "center" }}>
-						{`${questions.length} Questions`}
-					</Text>
-					<Button
-						icon={{ name: "code" }}
-						backgroundColor="#03A9F4"
-						fontFamily="Lato-Regular"
-						buttonStyle={{
-							borderRadius: 0,
-							marginLeft: 0,
-							marginRight: 0,
-							marginBottom: 0
-						}}
-						title="Start Quiz"
-						onPress={() => this.props.navigation.navigate("quiz")}
-					/>
+				<Card
+					title={title}
+					titleStyle={{ fontSize: 30, fontFamily: "Lato-Regular" }}
+					featuredTitle={`${questions.length} Questions`}
+					featuredTitleStyle={{
+						fontSize: 20,
+						fontFamily: "Lato-Regular"
+					}}
+					image={require("../img/react.png")}
+					containerStyle={{
+						flex: 1,
+						width: Dimensions.get("window").width * 0.95,
+						marginBottom: 20
+					}}
+				>
+					{questions.length > 0 ? (
+						<Button
+							large
+							icon={{ name: "code" }}
+							backgroundColor="#03A9F4"
+							fontFamily="Lato-Regular"
+							buttonStyle={{
+								borderRadius: 0,
+								marginLeft: 0,
+								marginRight: 0,
+								marginTop: 20
+							}}
+							title="Start Quiz"
+							onPress={() =>
+								this.props.navigation.navigate("quiz")
+							}
+						/>
+					) : (
+						<Text style={{ textAlign: "center", marginTop: 20, fontFamily:"Lato-Regular", fontSize: 20 }}>
+							{`Add a question to this deck before you can start the ${title} quiz.`}
+						</Text>
+					)}
 				</Card>
 			</View>
 		);
