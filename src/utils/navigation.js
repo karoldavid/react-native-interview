@@ -6,7 +6,9 @@ import QuizScreen from "../screens/QuizScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import AddDeckScreen from "../screens/AddDeckScreen";
 import AddQuestionScreen from "../screens/AddQuestionScreen";
-import EvaluationScreen from "../screens/EvaluationScreen";
+import KnowScreen from "../screens/DontKnowScreen";
+import DontKnowScreen from "../screens/DontKnowScreen";
+import SummaryScreen from "../screens/SummaryScreen";
 
 export const MainNavigator = TabNavigator(
   {
@@ -21,7 +23,36 @@ export const MainNavigator = TabNavigator(
           screen: QuizScreen
         },
         evaluation: {
-          screen: EvaluationScreen
+          screen: TabNavigator(
+            {
+              yes: { screen: KnowScreen },
+              no: { screen: DontKnowScreen },
+              summary: { screen: SummaryScreen }
+            },
+            {
+              navigationOptions: {
+                tabBarVisible: true,
+                header: null,
+              },
+              tabBarPosition: "bottom",
+              lazy: true,
+              tabBarOptions: {
+                swipeEnabled: false,
+                activeTintColor: "white",
+                style: {
+                  height: 56,
+                  backgroundColor: "green",
+                  shadowColor: "rgba(0, 0, 0, 0.24)",
+                  shadowOffset: {
+                    width: 0,
+                    height: 3
+                  },
+                  shadowRadius: 6,
+                  shadowOpacity: 1
+                }
+              }
+            }
+          )
         }
       })
     },
