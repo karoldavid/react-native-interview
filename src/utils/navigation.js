@@ -6,6 +6,7 @@ import QuizScreen from "../screens/QuizScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import AddDeckScreen from "../screens/AddDeckScreen";
 import AddQuestionScreen from "../screens/AddQuestionScreen";
+import EvaluationScreen from "../screens/EvaluationScreen";
 
 export const MainNavigator = TabNavigator(
   {
@@ -18,6 +19,9 @@ export const MainNavigator = TabNavigator(
         addQuestion: { screen: AddQuestionScreen },
         quiz: {
           screen: QuizScreen
+        },
+        evaluation: {
+          screen: EvaluationScreen
         }
       })
     },

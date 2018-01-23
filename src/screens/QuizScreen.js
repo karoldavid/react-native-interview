@@ -54,7 +54,7 @@ class QuizScreen extends Component {
 					title="Go to self evaluation"
 					icon={{ name: "done" }}
 					backgroundColor={deepSkyBlue}
-					onPress={() => this.props.navigation.navigate("decks")}
+					onPress={() => this.props.navigation.navigate("evaluation")}
 				/>
 			</Card>
 		);
