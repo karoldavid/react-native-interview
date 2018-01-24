@@ -78,8 +78,17 @@ class QuizScreen extends Component {
 	};
 
 	renderNoMoreCards = () => {
+		const percentCorrect = () => {
+			const { know, questions } = this.props;
+			return know.length / questions.length * 100;
+		};
 		return (
-			<Card title="No more questions">
+			<Card title="Questions Answered Correctly">
+				<View style={{ marginTop: 20, marginBottom: 30 }}>
+					<Text
+						style={{ textAlign: "center", fontSize: 50 }}
+					>{`${percentCorrect()} %`}</Text>
+				</View>
 				<Button
 					containerViewStyle={{ marginBottom: 20 }}
 					large
@@ -136,7 +145,10 @@ class QuizScreen extends Component {
 	}
 }
 
-const mapStateToProps = ({ decks: { list, selected }, quiz: { answered } }) => {
+const mapStateToProps = ({
+	decks: { list, selected },
+	quiz: { answered, know }
+}) => {
 	const { questions, title } = list.find(
 		deck => deck.title === selected.title
 	);
@@ -144,7 +156,8 @@ const mapStateToProps = ({ decks: { list, selected }, quiz: { answered } }) => {
 	return {
 		questions,
 		title,
-		answered
+		answered,
+		know
 	};
 };
 
