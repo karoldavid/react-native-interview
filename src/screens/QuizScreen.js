@@ -23,7 +23,7 @@ class QuizScreen extends Component {
 	};
 	static navigationOptions = ({ navigation }) => {
 		return {
-			title: "Quiz",
+			title: `Quiz ${navigation.state.params.title}`,
 			visible: true,
 			headerLeft: null,
 			headerTintColor: "white",
@@ -95,9 +95,8 @@ class QuizScreen extends Component {
 					title="Restart Quiz"
 					icon={{ name: "done" }}
 					backgroundColor={deepSkyBlue}
-					onPress={() => {
-						this.props.navigation.goBack();
-						this.props.resetQuiz();
+					onPress={() => { this.props.navigation.goBack()
+						this.props.resetQuiz()
 					}}
 				/>
 				<Button
@@ -105,9 +104,9 @@ class QuizScreen extends Component {
 					title="Back to Decks"
 					icon={{ name: "done" }}
 					backgroundColor={deepSkyBlue}
-					onPress={() => {
-						this.props.navigation.navigate("decks");
-						this.props.resetQuiz();
+					onPress={() => { 
+						this.props.navigation.navigate("decks")
+						this.props.resetQuiz()
 					}}
 				/>
 			</Card>

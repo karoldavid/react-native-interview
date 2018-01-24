@@ -58,7 +58,7 @@ class DeckScreen extends Component {
 							}}
 							title="Start Quiz"
 							onPress={() =>
-								this.props.navigation.navigate("quiz")
+								this.props.navigation.navigate("quiz", { title })
 							}
 						/>
 					) : (
