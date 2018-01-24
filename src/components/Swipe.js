@@ -115,7 +115,7 @@ class Swipe extends Component {
 							]}
 							{...this.state.panResponder.panHandlers}
 						>
-							{this.props.renderCard(item)}
+							{this.props.renderCard(item, true)}
 						</Animated.View>
 					);
 				}

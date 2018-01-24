@@ -18,6 +18,9 @@ import { deepSkyBlue } from "../utils/colors";
 const SCREEN_HEIGHT = Dimensions.get("screen").height;
 
 class QuizScreen extends Component {
+	state = {
+		show: false
+	};
 	static navigationOptions = ({ navigation }) => {
 		return {
 			title: "Quiz",
@@ -29,12 +32,20 @@ class QuizScreen extends Component {
 		};
 	};
 
-	renderCard(item) {
+	toggleAnswer = () => {
+		this.setState(previousState => {
+			return {
+				show: !previousState.show
+			};
+		});
+	};
+
+	renderCard = (item, show = false) => {
 		const { question, answer, id } = item;
 
 		return (
 			<Card key={id} title={question}>
-				<View style={{ marginTop: 20, marginBottom: 20 }}>
+				<View style={{ marginTop: 10, marginBottom: 10 }}>
 					<Text style={{ textAlign: "center" }}>
 						Know the Answer?
 					</Text>
@@ -43,9 +54,20 @@ class QuizScreen extends Component {
 					<Text>No, swipe left.</Text>
 					<Text>Yes, swipe right.</Text>
 				</View>
+				<View style={{ marginTop: 10, marginBottom: 10 }}>
+					<Button
+						title={this.state.show && show ? "Hide Answer" : "Show Answer"}
+						onPress={this.toggleAnswer}
+					/>
+				</View>
+				{this.state.show && show && (
+					<View style={{ marginTop: 10, marginBottom: 10 }}>
+						<Text style={{ textAlign: "center" }}>{answer}</Text>
+					</View>
+				)}
 			</Card>
 		);
-	}
+	};
 
 	renderNoMoreCards = () => {
 		return (
@@ -78,24 +100,21 @@ class QuizScreen extends Component {
 					renderCard={this.renderCard}
 					renderNoMoreCards={this.renderNoMoreCards}
 					keyProp="id"
-					onSwipeRight={question =>
-						this.props.sortAnswer({ prop: "know", value: question })
-					}
-					onSwipeLeft={question =>
+					onSwipeRight={question => {
+						this.setState({ show: false });
+						this.props.sortAnswer({
+							prop: "know",
+							value: question
+						});
+					}}
+					onSwipeLeft={question => {
+						this.setState({ show: false });
 						this.props.sortAnswer({
 							prop: "dontKnow",
 							value: question
-						})
-					}
+						});
+					}}
 				/>
-
-				<Card title="Instructions">
-					<Text style={{ textAlign: "center" }}>
-						Use pen and paper. If you know the answer, write it down
-						and swipe right Otherwise, write down the question.
-						Then, swipe left.
-					</Text>
-				</Card>
 			</View>
 		);
 	}
