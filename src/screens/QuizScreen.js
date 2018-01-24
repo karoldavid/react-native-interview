@@ -56,15 +56,22 @@ class QuizScreen extends Component {
 				</View>
 				<View style={{ marginTop: 10, marginBottom: 10 }}>
 					<Button
-						title={this.state.show && show ? "Hide Answer" : "Show Answer"}
+						title={
+							this.state.show && show
+								? "Hide Answer"
+								: "Show Answer"
+						}
 						onPress={this.toggleAnswer}
 					/>
 				</View>
-				{this.state.show && show && (
-					<View style={{ marginTop: 10, marginBottom: 10 }}>
-						<Text style={{ textAlign: "center" }}>{answer}</Text>
-					</View>
-				)}
+				{this.state.show &&
+					show && (
+						<View style={{ marginTop: 10, marginBottom: 10 }}>
+							<Text style={{ textAlign: "center" }}>
+								{answer}
+							</Text>
+						</View>
+					)}
 			</Card>
 		);
 	};
@@ -73,11 +80,19 @@ class QuizScreen extends Component {
 		return (
 			<Card title="No more questions">
 				<Button
+					containerViewStyle={{ marginBottom: 20 }}
 					large
-					title="Go to self evaluation"
+					title="Restart Quiz"
 					icon={{ name: "done" }}
 					backgroundColor={deepSkyBlue}
-					onPress={() => this.props.navigation.navigate("evaluation")}
+					onPress={() => this.props.navigation.goBack()}
+				/>
+				<Button
+					large
+					title="Back to Decks"
+					icon={{ name: "done" }}
+					backgroundColor={deepSkyBlue}
+					onPress={() => this.props.navigation.navigate("decks")}
 				/>
 			</Card>
 		);
