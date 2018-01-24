@@ -6,7 +6,8 @@ import {
 	Text,
 	Image,
 	Platform,
-	Dimensions
+	Dimensions,
+	Linking
 } from "react-native";
 import { Bar } from "react-native-progress";
 import { styles } from "../utils/styles";
@@ -41,8 +42,12 @@ class QuizScreen extends Component {
 		});
 	};
 
+	goToSource = (source) => {
+		Linking.openURL(source);
+	}
+
 	renderCard = (item, show = false) => {
-		const { question, answer, id } = item;
+		const { question, answer, id, source } = item;
 
 		return (
 			<Card key={id} title={question}>
@@ -71,6 +76,11 @@ class QuizScreen extends Component {
 							<Text style={{ textAlign: "center" }}>
 								{answer}
 							</Text>
+							{ source.length > 0 ? (
+								<Text style={{ textAlign: "center", marginTop: 10, color: "blue" }} onPress={() => this.goToSource(source)}>Source</Text>
+								)
+							: (<Text style={{ textAlign: "center", marginTop: 10, color: "red" }}>Source Unknown</Text>)
+						}
 						</View>
 					)}
 			</Card>
