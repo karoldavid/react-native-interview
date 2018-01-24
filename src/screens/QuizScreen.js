@@ -25,6 +25,7 @@ class QuizScreen extends Component {
 		return {
 			title: "Quiz",
 			visible: true,
+			headerLeft: null,
 			headerTintColor: "white",
 			headerStyle: {
 				backgroundColor: "blue"

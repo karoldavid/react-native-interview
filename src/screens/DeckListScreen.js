@@ -13,6 +13,7 @@ class DeckListScreen extends Component {
 		return {
 			title: "Decks",
 			visible: true,
+			headerLeft: null,
 			headerTintColor: "white",
 			headerStyle: {
 				backgroundColor: "blue"
