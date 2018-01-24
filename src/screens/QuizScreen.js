@@ -95,14 +95,20 @@ class QuizScreen extends Component {
 					title="Restart Quiz"
 					icon={{ name: "done" }}
 					backgroundColor={deepSkyBlue}
-					onPress={() => this.props.navigation.goBack()}
+					onPress={() => {
+						this.props.navigation.goBack();
+						this.props.resetQuiz();
+					}}
 				/>
 				<Button
 					large
 					title="Back to Decks"
 					icon={{ name: "done" }}
 					backgroundColor={deepSkyBlue}
-					onPress={() => this.props.navigation.navigate("decks")}
+					onPress={() => {
+						this.props.navigation.navigate("decks");
+						this.props.resetQuiz();
+					}}
 				/>
 			</Card>
 		);

@@ -1,4 +1,4 @@
-import { SORT_ANSWER } from "./types";
+import { SORT_ANSWER, RESET_QUIZ } from "./types";
 
 export const sortAnswer = ({ prop, value }) => {
 	return {
@@ -7,5 +7,11 @@ export const sortAnswer = ({ prop, value }) => {
 			prop,
 			value
 		}
+	};
+};
+
+export const resetQuiz = () => {
+	return {
+		type: RESET_QUIZ
 	};
 };

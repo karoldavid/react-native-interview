@@ -7,3 +7,4 @@ export const QUESTION_CHANGE = "QUESTION_CHANGE";
 export const SAVE_QUESTION =  "SAVE_QUESTION";
 
 export const SORT_ANSWER = "SORT_ANSWER";
+export const RESET_QUIZ = "RESET_QUIZ";
