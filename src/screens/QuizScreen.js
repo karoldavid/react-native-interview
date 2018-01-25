@@ -62,6 +62,8 @@ class QuizScreen extends Component {
 				</View>
 				<View style={{ marginTop: 10, marginBottom: 10 }}>
 					<Button
+						large
+						backgroundColor={deepSkyBlue}
 						title={
 							this.state.show && show
 								? "Hide Answer"
@@ -111,7 +113,7 @@ class QuizScreen extends Component {
 			return know.length / questions.length * 100;
 		};
 		return (
-			<Card title="Questions Answered Correctly">
+			<Card title="Correct Answers">
 				<View style={{ marginTop: 20, marginBottom: 30 }}>
 					<Text
 						style={{ textAlign: "center", fontSize: 50 }}
@@ -119,7 +121,7 @@ class QuizScreen extends Component {
 				</View>
 				<Button
 					containerViewStyle={{ marginBottom: 20 }}
-					largeb
+					large
 					title="Restart Quiz"
 					icon={{ name: "done" }}
 					backgroundColor={deepSkyBlue}
