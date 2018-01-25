@@ -42,9 +42,9 @@ class QuizScreen extends Component {
 		});
 	};
 
-	goToSource = (source) => {
+	goToSource = source => {
 		Linking.openURL(source);
-	}
+	};
 
 	renderCard = (item, show = false) => {
 		const { question, answer, id, source } = item;
@@ -76,11 +76,28 @@ class QuizScreen extends Component {
 							<Text style={{ textAlign: "center" }}>
 								{answer}
 							</Text>
-							{ source.length > 0 ? (
-								<Text style={{ textAlign: "center", marginTop: 10, color: "blue" }} onPress={() => this.goToSource(source)}>Source</Text>
-								)
-							: (<Text style={{ textAlign: "center", marginTop: 10, color: "red" }}>Source Unknown</Text>)
-						}
+							{source.length > 0 ? (
+								<Text
+									style={{
+										textAlign: "center",
+										marginTop: 10,
+										color: "blue"
+									}}
+									onPress={() => this.goToSource(source)}
+								>
+									Source
+								</Text>
+							) : (
+								<Text
+									style={{
+										textAlign: "center",
+										marginTop: 10,
+										color: "red"
+									}}
+								>
+									Source Unknown
+								</Text>
+							)}
 						</View>
 					)}
 			</Card>
@@ -88,6 +105,7 @@ class QuizScreen extends Component {
 	};
 
 	renderNoMoreCards = () => {
+		const { title } = this.props;
 		const percentCorrect = () => {
 			const { know, questions } = this.props;
 			return know.length / questions.length * 100;
@@ -101,12 +119,13 @@ class QuizScreen extends Component {
 				</View>
 				<Button
 					containerViewStyle={{ marginBottom: 20 }}
-					large
+					largeb
 					title="Restart Quiz"
 					icon={{ name: "done" }}
 					backgroundColor={deepSkyBlue}
-					onPress={() => { this.props.navigation.goBack()
-						this.props.resetQuiz()
+					onPress={() => {
+						this.props.navigation.navigate("quiz", { title });
+						this.props.resetQuiz();
 					}}
 				/>
 				<Button
@@ -114,9 +133,9 @@ class QuizScreen extends Component {
 					title="Back to Decks"
 					icon={{ name: "done" }}
 					backgroundColor={deepSkyBlue}
-					onPress={() => { 
-						this.props.navigation.navigate("decks")
-						this.props.resetQuiz()
+					onPress={() => {
+						this.props.navigation.navigate("decks");
+						this.props.resetQuiz();
 					}}
 				/>
 			</Card>
