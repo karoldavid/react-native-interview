@@ -11,6 +11,7 @@ import { styles } from "../utils/styles";
 import { blueMagenta } from "../utils/colors";
 import Form from "../components/common/Form";
 import * as actions from "../actions";
+import { submit, validate } from "../utils/helpers";
 
 class AddDeckScreen extends Component {
 	static navigationOptions = ({ navigation }) => {
@@ -46,17 +47,22 @@ class AddDeckScreen extends Component {
 
 		const { deck } = this.props;
 
+		const errors = validate(deck, FORM_INPUTS);
+		const submitForm = submit(deck, FORM_INPUTS, errors);
+		
 		return (
 			<View style={styles.container}>
 				<KeyboardAvoidingView behavior="padding">
 					<ScrollView>
 						<Form
 							data={deck}
+							errors={errors}
 							inputs={FORM_INPUTS}
 							onChange={this.onChange}
 						/>
 						<TouchableOpacity>
 							<Button
+								disabled={!submitForm}
 								title="Submit"
 								backgroundColor={blueMagenta}
 								containerViewStyle={{

@@ -12,6 +12,7 @@ import { blueMagenta } from "../utils/colors";
 import Form from "../components/common/Form";
 import * as actions from "../actions";
 import { NavigationActions } from "react-navigation";
+import { submit, validate } from "../utils/helpers";
 
 class AddQuestionScreen extends Component {
 	static navigationOptions = ({ navigation }) => {
@@ -52,17 +53,22 @@ class AddQuestionScreen extends Component {
 
 		const { question } = this.props;
 
+		const errors = validate(question, FORM_INPUTS);
+		const submitForm = submit(question, FORM_INPUTS, errors);
+
 		return (
 			<View style={styles.container}>
 				<KeyboardAvoidingView behavior="padding">
 					<ScrollView>
 						<Form
 							data={question}
+							errors={errors}
 							inputs={FORM_INPUTS}
 							onChange={this.onChange}
 						/>
 						<TouchableOpacity>
 							<Button
+								disabled={!submitForm}
 								title="Submit"
 								backgroundColor={blueMagenta}
 								containerViewStyle={{
