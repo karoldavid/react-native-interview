@@ -71,8 +71,12 @@ class AddDeckScreen extends Component {
 								}}
 								icon={{ name: "send" }}
 								onPress={() => {
-									this.props.saveDeck(deck);
-									this.props.navigation.navigate("decks");
+									//this.props.saveDeck(deck);
+									
+									this.props.createDeck(deck, () => {
+									 	this.props.navigation.navigate("decks");
+									})
+									
 								}}
 							/>
 						</TouchableOpacity>
@@ -84,6 +88,7 @@ class AddDeckScreen extends Component {
 }
 
 const mapStateToProps = ({ deck }) => {
+//	console.log(deck)
 	return {
 		deck
 	};

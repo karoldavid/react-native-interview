@@ -29,6 +29,10 @@ class DeckListScreen extends Component {
 		};
 	};
 
+	componentWillMount() {
+		this.props.decksFetch();
+	}
+
 	onPress = item => {
 		this.props.selectDeck(item);
 		this.props.navigation.navigate("deck");
@@ -43,7 +47,7 @@ class DeckListScreen extends Component {
 	}
 }
 
-const mapStateToProps = ({ decks: { list } }) => {
+const mapStateToProps = ({ decks: { list, deckList } }) => {
 	return {
 		decks: list
 	};
