@@ -38,7 +38,7 @@ export const validate = (data, inputs) => {
 			}
 		}
 
-		if (propName === "source" && value && !isWebUri(value) {
+		if (propName === "source" && value && !isWebUri(value)) {
 				errors[propName] = "Please enter a valid url"
 		}
 	});
