@@ -14,9 +14,6 @@ export default class App extends Component {
 
   componentWillMount() {
     this._loadFontsAsync();
-  }
-
-  componentDidMount() {
     firebase.initializeApp({
       apiKey: "AIzaSyCA0x71-FOoMze7Y4ySiCOMw7lX8ZbNUYI",
       authDomain: "react-interview.firebaseapp.com",
