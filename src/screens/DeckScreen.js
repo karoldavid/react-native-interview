@@ -32,7 +32,7 @@ class DeckScreen extends Component {
 				<Card
 					title={title}
 					titleStyle={{ fontSize: 30, fontFamily: "Lato-Regular" }}
-					featuredTitle={`${questions ? questions.length : 0} Questions`}
+					featuredTitle={`${questions.length} ${questions.length === 1 ? "Question" : "Questions"}`}
 					featuredTitleStyle={{
 						fontSize: 20,
 						fontFamily: "Lato-Regular"

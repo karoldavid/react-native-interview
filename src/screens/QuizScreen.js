@@ -47,10 +47,10 @@ class QuizScreen extends Component {
 	};
 
 	renderCard = (item, show = false) => {
-		const { question, answer, id, source } = item;
+		const { question, answer, uid, source } = item;
 
 		return (
-			<Card key={id} title={question}>
+			<Card key={uid} title={question}>
 				<View style={{ marginTop: 10, marginBottom: 10 }}>
 					<Text style={{ textAlign: "center" }}>
 						Know the Answer?
@@ -160,7 +160,7 @@ class QuizScreen extends Component {
 					data={questions}
 					renderCard={this.renderCard}
 					renderNoMoreCards={this.renderNoMoreCards}
-					keyProp="id"
+					keyProp="uid"
 					onSwipeRight={question => {
 						this.setState({ show: false });
 						this.props.sortAnswer({
