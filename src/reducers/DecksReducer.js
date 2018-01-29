@@ -20,7 +20,7 @@ const decks = data.map(deck => {
 
 const INITIAL_STATE = {
 	list: [],
-	deckList: [],
+	loading: false,
 	selected: null
 };
 
@@ -46,10 +46,16 @@ export default function(state = INITIAL_STATE, action) {
 					return deck;
 				})
 			};
+		case DECKS_FETCH:
+			return {
+				...state,
+				loading: true
+			}
 		case DECKS_FETCH_SUCCESS:
 			return {
 				...state,
-				list: makeList(action.payload)
+				list: makeList(action.payload),
+				loading: false
 			};
 		default:
 			return state;
