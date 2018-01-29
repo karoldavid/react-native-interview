@@ -11,7 +11,7 @@ export default class Item extends PureComponent {
 				roundAvatar
 				keyExtractor={title}
 				title={title}
-				subtitle={`${questions ? questions.length : 0} Questions`}
+				subtitle={`${questions.length} ${questions.length === 1 ? "Question" : "Questions"}`}
 				avatar={require("../../img/react.png")}
 				onPress={this.props.onPress}
 				containerStyle={styles.listItemContainer}

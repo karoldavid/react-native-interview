@@ -47,7 +47,8 @@ class DeckListScreen extends Component {
 	}
 }
 
-const mapStateToProps = ({ decks: { list, deckList } }) => {
+const mapStateToProps = ({ decks: { list } }) => {
+	console.log(list)
 	return {
 		decks: list
 	};

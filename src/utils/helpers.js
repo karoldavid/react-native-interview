@@ -1,4 +1,5 @@
-import { isWebUri } from 'valid-url';
+import _ from "lodash";
+import { isWebUri } from "valid-url";
 
 export const validate = (data, inputs) => {
 	const errors = {};
@@ -8,19 +9,15 @@ export const validate = (data, inputs) => {
 		const value = data[propName];
 
 		if (propName === "title" && value && value.length < 3) {
-			errors[propName] =
-				"Can not be shorter than three characters";
+			errors[propName] = "Can not be shorter than three characters";
 		}
 
 		if (propName === "question" && value && value.length < 10) {
-			errors[propName] =
-				"Can not be shorter than ten characters";
+			errors[propName] = "Can not be shorter than ten characters";
 		}
 
-
 		if (propName === "answer" && value && value.length < 10) {
-			errors[propName] =
-				"Can not be shorter than ten characters";
+			errors[propName] = "Can not be shorter than ten characters";
 		}
 
 		if (propName === "title" && value && value.length < 3) {
@@ -39,7 +36,7 @@ export const validate = (data, inputs) => {
 		}
 
 		if (propName === "source" && value && !isWebUri(value)) {
-				errors[propName] = "Please enter a valid url"
+			errors[propName] = "Please enter a valid url";
 		}
 	});
 
@@ -55,4 +52,26 @@ export const submit = (data, inputs, errors) => {
 			return prev;
 		}, 0) === 0
 	);
+};
+
+export const makeList = decks => {
+	const decksArray = _.map(decks, (val, uid) => {
+		return {
+			...val,
+			uid
+		};
+	});
+	decksArray.map(deck => {
+		if (deck.questions) {
+			deck.questions = _.map(deck.questions, (val, uid) => {
+				return {
+					...val,
+					uid
+				};
+			});
+		} else {
+			deck.questions = [];
+		}
+	});
+	return decksArray;
 };

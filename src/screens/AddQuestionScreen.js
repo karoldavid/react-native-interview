@@ -51,7 +51,7 @@ class AddQuestionScreen extends Component {
 			}
 		];
 
-		const { question } = this.props;
+		const { question, uid } = this.props;
 
 		const errors = validate(question, FORM_INPUTS);
 		const submitForm = submit(question, FORM_INPUTS, errors);
@@ -77,8 +77,14 @@ class AddQuestionScreen extends Component {
 								}}
 								icon={{ name: "send" }}
 								onPress={() => {
-									this.props.saveQuestion(question);
-									this.props.navigation.goBack();
+									//this.props.saveQuestion(question);
+									this.props.createQuestion(
+										question,
+										uid,
+										() => {
+											this.props.navigation.goBack();
+										}
+									);
 								}}
 							/>
 						</TouchableOpacity>
@@ -89,9 +95,11 @@ class AddQuestionScreen extends Component {
 	}
 }
 
-const mapStateToProps = ({ question }) => {
+const mapStateToProps = ({ question, decks: { list, selected } }) => {
+	const { uid } = list.find(deck => deck.title === selected.title);
 	return {
-		question
+		question,
+		uid
 	};
 };
 

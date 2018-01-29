@@ -1,4 +1,5 @@
 import { QUESTION_CHANGE, SAVE_QUESTION, QUESTION_CREATE } from "./types";
+import firebase from "firebase";
 
 export const updateQuestion = ({ prop, value }) => {
 	return {
@@ -19,7 +20,7 @@ export const createQuestion = (question, deckId, callback) => {
 		firebase
 			.database()
 			.ref(`/decks/${deckId}/questions`)
-			.push(deck)
+			.push(question)
 			.then(() => {
 				dispatch({ type: QUESTION_CREATE });
 				if (callback) callback();

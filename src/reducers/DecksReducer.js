@@ -8,6 +8,7 @@ import {
 	DECKS_FETCH_SUCCESS
 } from "../actions/types";
 import data from "../data/data.json";
+import { makeList } from "../utils/helpers";
 
 const decks = data.map(deck => {
 	deck.questions.map((question, index) => {
@@ -48,12 +49,7 @@ export default function(state = INITIAL_STATE, action) {
 		case DECKS_FETCH_SUCCESS:
 			return {
 				...state,
-				list: _.map(action.payload, (val, uid) => {
-					return {
-						...val,
-						uid
-					};
-				})
+				list: makeList(action.payload)
 			};
 		default:
 			return state;
