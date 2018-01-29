@@ -1,0 +1,23 @@
+{
+  "decks" : {
+    "-L3xq23BZsIeZWNUJanI" : {
+      "imageUrl" : "https://raw.githubusercontent.com/reactjs/redux/master/logo/logo.png",
+      "questions" : {
+        "-L3xz9bezu1l9Ahjd7l6" : {
+          "answer" : "ReactJs is a JavaScript Library used for developing apps in HTML5 using JavaScript as the developing language and React Native is used to develop native mobile apps using JavaScript as the development language.",
+          "question" : "What is the difference between React and React Native?",
+          "source" : "http://www.punch.cool/community/questions-answers/engineering/react-native/"
+        }
+      },
+      "title" : "React Native"
+    },
+    "-L3xwvDPrgNXVLBB1Wmh" : {
+      "imageUrl" : "https://raw.githubusercontent.com/reactjs/redux/master/logo/logo.png",
+      "title" : "React"
+    },
+    "-L3xwyumx0JDsE9PXq48" : {
+      "imageUrl" : "https://raw.githubusercontent.com/reactjs/redux/master/logo/logo.png",
+      "title" : "Redux"
+    }
+  }
+}
