@@ -46,5 +46,14 @@ export const styles = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "space-around",
 		marginBottom: 10
+	},
+	iconButton: {
+		paddingLeft: 20,
+		paddingRight: 20
+	},
+	overlay: {
+		position: "absolute",
+		bottom: 0,
+		right: 0
 	}
 });

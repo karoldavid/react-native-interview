@@ -6,7 +6,7 @@ import DeckList from "../components/DeckList";
 import { styles } from "../utils/styles";
 import * as actions from "../actions";
 import { IconButton } from "../components/common";
-import { blueMagenta, white } from "../utils/colors";
+import { blue, white } from "../utils/colors";
 
 class DeckListScreen extends Component {
 	static navigationOptions = ({ navigation }) => {
@@ -17,15 +17,7 @@ class DeckListScreen extends Component {
 			headerTintColor: "white",
 			headerStyle: {
 				backgroundColor: "blue"
-			},
-			headerRight: (
-				<IconButton
-					onPress={() => navigation.navigate("addDeck")}
-					ionicon="md-add-circle"
-					size={30}
-					color={white}
-				/>
-			)
+			}
 		};
 	};
 
@@ -39,15 +31,23 @@ class DeckListScreen extends Component {
 	};
 
 	render() {
-		const { decks, loading } = this.props;
+		const { decks, loading, navigation } = this.props;
 
 		return (
 			<View style={styles.container}>
 				{loading ? (
-					<ActivityIndicator size="large" color={blueMagenta} />
+					<ActivityIndicator size="large" color={blue} />
 				) : (
 					<DeckList data={decks} onPress={this.onPress} />
 				)}
+				<View style={styles.overlay}>
+					<IconButton
+						ionicon="md-add-circle"
+						size={50}
+						color={blue}
+						onPress={() => navigation.navigate("addDeck")}
+					/>
+				</View>
 			</View>
 		);
 	}
