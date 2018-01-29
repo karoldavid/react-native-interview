@@ -1,4 +1,4 @@
-import { QUESTION_CHANGE, SAVE_QUESTION, QUESTION_CREATE } from "./types";
+import { QUESTION_CHANGE, QUESTION_CREATE } from "./types";
 import firebase from "firebase";
 
 export const updateQuestion = ({ prop, value }) => {
@@ -7,13 +7,6 @@ export const updateQuestion = ({ prop, value }) => {
 		payload: { prop, value }
 	};
 };
-
-export const saveQuestion = question => {
-	return {
-		type: SAVE_QUESTION,
-		payload: question
-	}
-}
 
 export const createQuestion = (question, deckId, callback) => {
 	return dispatch => {

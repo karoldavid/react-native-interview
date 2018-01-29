@@ -1,8 +1,6 @@
 import _ from "lodash";
 import {
-	SELECT_DECK,
-	SAVE_DECK,
-	SAVE_QUESTION,
+	DECK_SELECT,
 	DECK_CREATE,
 	DECKS_FETCH,
 	DECKS_FETCH_SUCCESS
@@ -26,31 +24,16 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
 	switch (action.type) {
-		case SELECT_DECK:
+		case DECK_SELECT:
 			return {
 				...state,
 				selected: action.payload
-			};
-		case SAVE_DECK:
-			return {
-				...state,
-				list: [...state.list, action.payload]
-			};
-		case SAVE_QUESTION:
-			return {
-				...state,
-				list: state.list.map(deck => {
-					if (deck.title === state.selected.title) {
-						deck.questions = [...deck.questions, action.payload];
-					}
-					return deck;
-				})
 			};
 		case DECKS_FETCH:
 			return {
 				...state,
 				loading: true
-			}
+			};
 		case DECKS_FETCH_SUCCESS:
 			return {
 				...state,

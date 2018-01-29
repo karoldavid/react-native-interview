@@ -1,8 +1,8 @@
-import { SORT_ANSWER, RESET_QUIZ } from "./types";
+import { ANSWER_SORT, QUIZ_RESET } from "./types";
 
 export const sortAnswer = ({ prop, value }) => {
 	return {
-		type: SORT_ANSWER,
+		type: ANSWER_SORT,
 		payload: {
 			prop,
 			value
@@ -12,6 +12,6 @@ export const sortAnswer = ({ prop, value }) => {
 
 export const resetQuiz = () => {
 	return {
-		type: RESET_QUIZ
+		type: QUIZ_RESET
 	};
 };

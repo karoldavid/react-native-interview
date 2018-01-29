@@ -1,4 +1,4 @@
-import { QUESTION_CHANGE } from "../actions/types";
+import { QUESTION_CHANGE, QUESTION_CREATE } from "../actions/types";
 
 const INITIAL_STATE = {
 	question: "",
@@ -8,6 +8,8 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
 	switch (action.type) {
+		case QUESTION_CREATE:
+			return INITIAL_STATE;
 		case QUESTION_CHANGE:
 			return { ...state, [action.payload.prop]: action.payload.value };
 		default:

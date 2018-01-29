@@ -1,4 +1,4 @@
-import { SORT_ANSWER, RESET_QUIZ } from "../actions/types";
+import { ANSWER_SORT, QUIZ_SORT } from "../actions/types";
 
 const INITIAL_STATE = {
 	know: [],
@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
 	switch (action.type) {
-		case SORT_ANSWER:
+		case ANSWER_SORT:
 			return {
 				...state,
 				[action.payload.prop]: [
@@ -18,8 +18,8 @@ export default function(state = INITIAL_STATE, action) {
 				answered: state.answered + 1
 			};
 
-		case RESET_QUIZ:
-			return INITIAL_STATE
+		case QUIZ_SORT:
+			return INITIAL_STATE;
 		default:
 			return state;
 	}

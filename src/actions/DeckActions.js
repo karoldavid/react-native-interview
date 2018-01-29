@@ -1,9 +1,9 @@
-import { SELECT_DECK, DECK_CHANGE, SAVE_DECK, DECK_CREATE, DECKS_FETCH, DECKS_FETCH_SUCCESS } from "./types";
+import { DECK_SELECT, DECK_CHANGE, DECK_CREATE, DECKS_FETCH, DECKS_FETCH_SUCCESS } from "./types";
 import firebase from "firebase";
 
 export const selectDeck = deck => {
 	return {
-		type: SELECT_DECK,
+		type: DECK_SELECT,
 		payload: deck
 	};
 };
@@ -12,13 +12,6 @@ export const updateDeck = ({ prop, value }) => {
 	return {
 		type: DECK_CHANGE,
 		payload: { prop, value }
-	};
-};
-
-export const saveDeck = deck => {
-	return {
-		type: SAVE_DECK,
-		payload: deck
 	};
 };
 
