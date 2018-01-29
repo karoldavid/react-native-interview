@@ -44,7 +44,7 @@ class DeckScreen extends Component {
 						marginBottom: 20
 					}}
 				>
-					{questions ? (
+					{questions.length > 0 ? (
 						<Button
 							large
 							icon={{ name: "code" }}
