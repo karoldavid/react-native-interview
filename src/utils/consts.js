@@ -6,19 +6,15 @@ export const SLIDE_DATA = [
 		color: deepSkyBlue
 	},
 	{
-		text: "Test Your Knowledge",
+		text: "Test your knowledge",
 		color: darkCyan
 	},
 	{
-		text: "Swipe the Flashcards to the Left or to the Right",
+		text: "Swipe the flashcards to the left or to the right",
 		color: deepSkyBlue
 	},
 	{
-		text: "Track Your Progress",
-		color: darkCyan
-	},
-	{
-		text: "Add New Decks and Cards",
+		text: "Add new decks and cards to a shared database",
 		color: deepSkyBlue
 	},
 	{
