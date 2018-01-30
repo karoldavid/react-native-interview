@@ -13,6 +13,7 @@ export default class App extends Component {
   };
 
   componentWillMount() {
+    console.ignoredYellowBox = ["Setting a timer"];
     this._loadFontsAsync();
     firebase.initializeApp({
       apiKey: "AIzaSyCA0x71-FOoMze7Y4ySiCOMw7lX8ZbNUYI",
