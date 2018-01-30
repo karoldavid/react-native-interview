@@ -11,15 +11,22 @@ export const MainNavigator = TabNavigator(
   {
     Welcome: { screen: WelcomeScreen },
     decks: {
-      screen: StackNavigator({
-        decks: { screen: DeckListScreen },
-        deck: { screen: DeckScreen },
-        addDeck: { screen: AddDeckScreen },
-        addQuestion: { screen: AddQuestionScreen },
-        quiz: {
-          screen: QuizScreen
+      screen: StackNavigator(
+        {
+          decks: { screen: DeckListScreen },
+          deck: { screen: DeckScreen },
+          addDeck: { screen: AddDeckScreen },
+          addQuestion: { screen: AddQuestionScreen },
+          quiz: {
+            screen: QuizScreen
+          }
         },
-      })
+        {
+          navigationOptions: {
+            swipeEnabled: false
+          }
+        }
+      )
     },
     settings: { screen: SettingsScreen }
   },
@@ -30,7 +37,6 @@ export const MainNavigator = TabNavigator(
     tabBarPosition: "bottom",
     lazy: true,
     tabBarOptions: {
-      swipeEnabled: false,
       activeTintColor: "white",
       style: {
         height: 56,
