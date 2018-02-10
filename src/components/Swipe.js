@@ -17,7 +17,7 @@ class Swipe extends Component {
 	static defaultProps = {
 		onSwipeRight: () => {},
 		onSwipeLeft: () => {},
-		keyProp: 'id'
+		keyProp: "id"
 	};
 
 	constructor(props) {
@@ -44,13 +44,13 @@ class Swipe extends Component {
 		this.state = {
 			panResponder,
 			position,
-			index: 0
+			index: this.props.index
 		};
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.data !== this.props.data) {
-			this.setState({ index: 0 });
+		if (nextProps.index < this.props.index) {
+			this.setState({ index: nextProps.index });
 		}
 	}
 
@@ -101,38 +101,37 @@ class Swipe extends Component {
 			return this.props.renderNoMoreCards();
 		const { keyProp } = this.props;
 
-		const deck = this.props.data
-			.map((item, i) => {
-				if (i < this.state.index) return null;
-				if (i === this.state.index) {
-					return (
-						<Animated.View
-							key={item[keyProp]}
-							style={[
-								this.getCardStyle(),
-								styles.cardStyle,
-								{ zIndex: 99 }
-							]}
-							{...this.state.panResponder.panHandlers}
-						>
-							{this.props.renderCard(item, true)}
-						</Animated.View>
-					);
-				}
+		const deck = this.props.data.map((item, i) => {
+			if (i < this.state.index) return null;
+			if (i === this.state.index) {
 				return (
 					<Animated.View
 						key={item[keyProp]}
 						style={[
+							this.getCardStyle(),
 							styles.cardStyle,
-							{ top: 10 * (i - this.state.index), zIndex: -i }
+							{ zIndex: 99 }
 						]}
+						{...this.state.panResponder.panHandlers}
 					>
-						{this.props.renderCard(item)}
+						{this.props.renderCard(item, true)}
 					</Animated.View>
 				);
-			})
-			
-			return Platform.OS === "android" ?  deck: deck.reverse();
+			}
+			return (
+				<Animated.View
+					key={item[keyProp]}
+					style={[
+						styles.cardStyle,
+						{ top: 10 * (i - this.state.index), zIndex: -i }
+					]}
+				>
+					{this.props.renderCard(item)}
+				</Animated.View>
+			);
+		});
+
+		return Platform.OS === "android" ? deck : deck.reverse();
 	}
 
 	render() {

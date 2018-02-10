@@ -9,3 +9,5 @@ export const QUESTION_CREATE = "QUESTION_CREATE";
 
 export const ANSWER_SORT = "ANSWER_SORT";
 export const QUIZ_RESET = "QUIZ_RESET";
+export const QUIZ_SELECT = "QUIZ_SELECT";
+export const QUIZ_RESTART = "QUIZ_RESTART";

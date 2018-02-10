@@ -20,7 +20,8 @@ const SCREEN_HEIGHT = Dimensions.get("screen").height;
 
 class QuizScreen extends Component {
 	state = {
-		show: false
+		show: false,
+		index: 0
 	};
 	static navigationOptions = ({ navigation }) => {
 		return {
@@ -126,8 +127,7 @@ class QuizScreen extends Component {
 					icon={{ name: "done" }}
 					backgroundColor={deepSkyBlue}
 					onPress={() => {
-						this.props.navigation.navigate("quiz", { title });
-						this.props.resetQuiz();
+						this.props.restartQuiz();
 					}}
 				/>
 				<Button
@@ -145,7 +145,7 @@ class QuizScreen extends Component {
 	};
 
 	render() {
-		const { questions, answered } = this.props;
+		const { questions, answered, index } = this.props;
 		const getProgress = () => {
 			return answered * (100 / questions.length) / 100;
 		};
@@ -161,6 +161,7 @@ class QuizScreen extends Component {
 					renderCard={this.renderCard}
 					renderNoMoreCards={this.renderNoMoreCards}
 					keyProp="uid"
+					index={index}
 					onSwipeRight={question => {
 						this.setState({ show: false });
 						this.props.sortAnswer({
@@ -181,19 +182,13 @@ class QuizScreen extends Component {
 	}
 }
 
-const mapStateToProps = ({
-	decks: { list, selected },
-	quiz: { answered, know }
-}) => {
-	const { questions, title } = list.find(
-		deck => deck.title === selected.title
-	);
-
+const mapStateToProps = ({ quiz: { questions, title, answered, know, index } }) => {
 	return {
 		questions,
 		title,
 		answered,
-		know
+		know,
+		index
 	};
 };
 

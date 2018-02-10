@@ -5,6 +5,7 @@ import { Button, Card, Icon } from "react-native-elements";
 import { styles } from "../utils/styles";
 import { white } from "../utils/colors";
 import { IconButton } from "../components/common";
+import * as actions from "../actions";
 
 class DeckScreen extends Component {
 	static navigationOptions = ({ navigation }) => {
@@ -32,7 +33,9 @@ class DeckScreen extends Component {
 				<Card
 					title={title}
 					titleStyle={{ fontSize: 30, fontFamily: "Lato-Regular" }}
-					featuredTitle={`${questions.length} ${questions.length === 1 ? "Question" : "Questions"}`}
+					featuredTitle={`${questions.length} ${
+						questions.length === 1 ? "Question" : "Questions"
+					}`}
 					featuredTitleStyle={{
 						fontSize: 20,
 						fontFamily: "Lato-Regular"
@@ -57,13 +60,25 @@ class DeckScreen extends Component {
 								marginTop: 20
 							}}
 							title="Start Quiz"
-							onPress={() =>
-								this.props.navigation.navigate("quiz", { title })
-							}
+							onPress={() => {
+								this.props.selectQuiz({ questions, title });
+								this.props.navigation.navigate("quiz", {
+									title
+								});
+							}}
 						/>
 					) : (
-						<Text style={{ textAlign: "center", marginTop: 20, fontFamily:"Lato-Regular", fontSize: 20 }}>
-							{`Add a question to this deck before you can start the ${title} quiz.`}
+						<Text
+							style={{
+								textAlign: "center",
+								marginTop: 20,
+								fontFamily: "Lato-Regular",
+								fontSize: 20
+							}}
+						>
+							{`Add a question to this deck before you can start the ${
+								title
+							} quiz.`}
 						</Text>
 					)}
 				</Card>
@@ -76,10 +91,11 @@ const mapStateToProps = ({ decks: { list, selected } }) => {
 	const { questions, title } = list.find(
 		deck => deck.title === selected.title
 	);
+
 	return {
 		questions,
 		title
 	};
 };
 
-export default connect(mapStateToProps)(DeckScreen);
+export default connect(mapStateToProps, actions)(DeckScreen);
