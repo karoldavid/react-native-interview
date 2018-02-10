@@ -111,7 +111,9 @@ class QuizScreen extends Component {
 		const { title } = this.props;
 		const percentCorrect = () => {
 			const { know, questions } = this.props;
-			return know.length / questions.length * 100;
+			return questions.length > 0
+				? know.length / questions.length * 100
+				: 0;
 		};
 		return (
 			<Card title="Correct Answers">
@@ -182,7 +184,9 @@ class QuizScreen extends Component {
 	}
 }
 
-const mapStateToProps = ({ quiz: { questions, title, answered, know, index } }) => {
+const mapStateToProps = ({
+	quiz: { questions, title, answered, know, index }
+}) => {
 	return {
 		questions,
 		title,
