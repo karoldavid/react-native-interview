@@ -31,7 +31,9 @@ class QuizScreen extends Component {
 			headerTintColor: white,
 			headerStyle: {
 				backgroundColor: blue
-			}
+			},
+			headerTitleStyle: { textAlign: "center", alignSelf: "center" },
+			tabBarLabel: 'Quiz'
 		};
 	};
 
