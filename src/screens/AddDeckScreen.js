@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { Button, Icon } from "react-native-elements";
 import { styles } from "../utils/styles";
-import { blue } from "../utils/colors";
+import { blue, white } from "../utils/colors";
 import Form from "../components/common/Form";
 import * as actions from "../actions";
 import { submit, validate } from "../utils/helpers";
