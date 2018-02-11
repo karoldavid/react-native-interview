@@ -53,7 +53,7 @@ export const styles = StyleSheet.create({
 	},
 	overlay: {
 		position: "absolute",
-		bottom: 0,
+		bottom: 20,
 		right: 0
 	}
 });

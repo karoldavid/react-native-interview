@@ -14,9 +14,9 @@ class DeckListScreen extends Component {
 			title: "Decks",
 			visible: true,
 			headerLeft: null,
-			headerTintColor: "white",
+			headerTintColor: white,
 			headerStyle: {
-				backgroundColor: "blue"
+				backgroundColor: blue
 			}
 		};
 	};
