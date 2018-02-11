@@ -112,7 +112,7 @@ class QuizScreen extends Component {
 		const percentCorrect = () => {
 			const { know, questions } = this.props;
 			return questions.length > 0
-				? know.length / questions.length * 100
+				? (know.length / questions.length * 100).toFixed(0)
 				: 0;
 		};
 		return (
