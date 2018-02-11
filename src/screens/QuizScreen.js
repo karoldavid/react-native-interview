@@ -15,9 +15,8 @@ import Swipe from "../components/Swipe";
 import { Card, Icon } from "react-native-elements";
 import * as actions from "../actions";
 import { blue, red, white } from "../utils/colors";
-import Button from "../components/common/Button"
-
-const SCREEN_HEIGHT = Dimensions.get("screen").height;
+import Button from "../components/common/Button";
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../utils/consts";
 
 class QuizScreen extends Component {
 	state = {
@@ -52,9 +51,14 @@ class QuizScreen extends Component {
 		const { question, answer, uid, source } = item;
 
 		return (
-			<Card key={uid} title={question}>
-				<View style={{ marginTop: 10, marginBottom: 10 }}>
-					<Text style={{ textAlign: "center" }}>
+			<Card
+				key={uid}
+				titleNumberOfLines={3}
+				title={question}
+				titleStyle={{ height: 50, fontSize: 14 }}
+			>
+				<View style={{ marginBottom: 10 }}>
+					<Text style={{ textAlign: "center", fontSize: 14 }}>
 						Know the Answer?
 					</Text>
 				</View>
@@ -62,7 +66,7 @@ class QuizScreen extends Component {
 					<Text>No, swipe left.</Text>
 					<Text>Yes, swipe right.</Text>
 				</View>
-				<View style={{ marginTop: 10, marginBottom: 10 }}>
+				<View>
 					<Button
 						title={
 							this.state.show && show
@@ -75,7 +79,7 @@ class QuizScreen extends Component {
 				{this.state.show &&
 					show && (
 						<View style={{ marginTop: 10, marginBottom: 10 }}>
-							<Text style={{ textAlign: "center" }}>
+							<Text style={{ textAlign: "center", fontSize: 14 }}>
 								{answer}
 							</Text>
 							{source.length > 0 ? (
@@ -115,11 +119,15 @@ class QuizScreen extends Component {
 				: 0;
 		};
 		return (
-			<Card title="Correct Answers">
-				<View style={{ marginTop: 20, marginBottom: 30 }}>
+			<Card
+				containerStyle={{ flex: 1, marginBottom: 10 }}
+				title="Correct Answers"
+				titleStyle={{ fontSize: 18 }}
+			>
+				<View style={{ marginTop: 20, marginBottom: 20 }}>
 					<Text
-						style={{ textAlign: "center", fontSize: 50 }}
-					>{`${percentCorrect()} %`}</Text>
+						style={{ textAlign: "center", fontSize: 40 }}
+					>{`${percentCorrect()}%`}</Text>
 				</View>
 				<Button
 					title="Restart Quiz"
@@ -147,11 +155,14 @@ class QuizScreen extends Component {
 		};
 		return (
 			<View style={styles.quizContainer}>
-				<Bar
-					progress={getProgress()}
-					width={Dimensions.get("window").width}
-				/>
-
+				<View
+					style={{
+						alignItems: "center",
+						marginTop: 10
+					}}
+				>
+					<Bar progress={getProgress()} width={SCREEN_WIDTH * 0.95} />
+				</View>
 				<Swipe
 					data={questions}
 					renderCard={this.renderCard}

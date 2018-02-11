@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { SCREEN_WIDTH } from "./consts";
+import { SCREEN_WIDTH, SCREEN_HEIGHT } from "./consts";
 import { blue, veryLightGray, white } from "./colors";
 
 export const styles = StyleSheet.create({
@@ -36,16 +36,12 @@ export const styles = StyleSheet.create({
 		marginTop: 15
 	},
 	button: {
-		backgroundColor: blue
-	},
-	buttonStyle: {
 		borderRadius: 0,
 		marginLeft: 0,
 		marginRight: 0,
 		marginTop: 20
 	},
 	quizContainer: {
-		marginTop: 10,
 		flex: 1,
 		backgroundColor: white
 	},
@@ -63,7 +59,7 @@ export const styles = StyleSheet.create({
 		bottom: 20,
 		right: 0
 	},
-	cardStyle: {
+	card: {
 		position: "absolute",
 		width: SCREEN_WIDTH
 	}

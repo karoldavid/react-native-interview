@@ -19,7 +19,7 @@ export default ({
 		icon={icon ? icon : null}
 		backgroundColor={blue}
 		fontFamily="Lato-Regular"
-		buttonStyle={styles.buttonStyle}
+		buttonStyle={styles.button}
 		title={title}
 		onPress={onPress}
 	/>
