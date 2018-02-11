@@ -6,13 +6,14 @@ import {
 	TouchableOpacity,
 	View
 } from "react-native";
-import { Button, Icon } from "react-native-elements";
+import { Icon } from "react-native-elements";
 import { styles } from "../utils/styles";
 import { blue, white } from "../utils/colors";
 import Form from "../components/common/Form";
 import * as actions from "../actions";
 import { submit, validate } from "../utils/helpers";
 import { DECK_FORM_INPUTS as FORM_INPUTS } from "../utils/consts";
+import Button from "../components/common/Button";
 
 class AddDeckScreen extends Component {
 	static navigationOptions = ({ navigation }) => {
@@ -50,15 +51,8 @@ class AddDeckScreen extends Component {
 							<Button
 								disabled={!submitForm}
 								title="Submit"
-								backgroundColor={blue}
-								containerViewStyle={{
-									marginTop: 15,
-									marginBottom: 15
-								}}
 								icon={{ name: "send" }}
 								onPress={() => {
-									//this.props.saveDeck(deck);
-
 									this.props.createDeck(deck, () => {
 										this.props.navigation.navigate("decks");
 									});

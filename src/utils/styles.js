@@ -38,6 +38,12 @@ export const styles = StyleSheet.create({
 	button: {
 		backgroundColor: blue
 	},
+	buttonStyle: {
+		borderRadius: 0,
+		marginLeft: 0,
+		marginRight: 0,
+		marginTop: 20
+	},
 	quizContainer: {
 		marginTop: 10,
 		flex: 1,

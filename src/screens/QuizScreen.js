@@ -12,9 +12,10 @@ import {
 import { Bar } from "react-native-progress";
 import { styles } from "../utils/styles";
 import Swipe from "../components/Swipe";
-import { Button, Card, Icon } from "react-native-elements";
+import { Card, Icon } from "react-native-elements";
 import * as actions from "../actions";
 import { blue, red, white } from "../utils/colors";
+import Button from "../components/common/Button"
 
 const SCREEN_HEIGHT = Dimensions.get("screen").height;
 
@@ -63,8 +64,6 @@ class QuizScreen extends Component {
 				</View>
 				<View style={{ marginTop: 10, marginBottom: 10 }}>
 					<Button
-						large
-						backgroundColor={blue}
 						title={
 							this.state.show && show
 								? "Hide Answer"
@@ -123,20 +122,15 @@ class QuizScreen extends Component {
 					>{`${percentCorrect()} %`}</Text>
 				</View>
 				<Button
-					containerViewStyle={{ marginBottom: 20 }}
-					large
 					title="Restart Quiz"
 					icon={{ name: "done" }}
-					backgroundColor={blue}
 					onPress={() => {
 						this.props.restartQuiz();
 					}}
 				/>
 				<Button
-					large
 					title="Back to Decks"
 					icon={{ name: "done" }}
-					backgroundColor={blue}
 					onPress={() => {
 						this.props.navigation.navigate("decks");
 						this.props.resetQuiz();

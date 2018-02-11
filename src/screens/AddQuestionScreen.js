@@ -6,7 +6,7 @@ import {
 	TouchableOpacity,
 	View
 } from "react-native";
-import { Button, Icon } from "react-native-elements";
+import { Icon } from "react-native-elements";
 import { styles } from "../utils/styles";
 import { blue, white } from "../utils/colors";
 import Form from "../components/common/Form";
@@ -14,6 +14,7 @@ import * as actions from "../actions";
 import { NavigationActions } from "react-navigation";
 import { submit, validate } from "../utils/helpers";
 import { QUESTION_FORM_INPUTS as FORM_INPUTS } from "../utils/consts";
+import Button from "../components/common/Button";
 
 class AddQuestionScreen extends Component {
 	static navigationOptions = ({ navigation }) => {
@@ -50,11 +51,6 @@ class AddQuestionScreen extends Component {
 							<Button
 								disabled={!submitForm}
 								title="Submit"
-								backgroundColor={blue}
-								containerViewStyle={{
-									marginTop: 15,
-									marginBottom: 15
-								}}
 								icon={{ name: "send" }}
 								onPress={() => {
 									//this.props.saveQuestion(question);

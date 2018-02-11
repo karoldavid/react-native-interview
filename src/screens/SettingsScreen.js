@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Alert, AsyncStorage, View } from "react-native";
-import { Button } from "react-native-elements";
 import { styles } from "../utils/styles";
 import { lightGray, white } from "../utils/colors";
+import Button from "../components/common/Button";
 
 class SettingsScreen extends Component {
 	state = {
@@ -26,12 +26,10 @@ class SettingsScreen extends Component {
 		return (
 			<View style={styles.container}>
 				<Button
-					containerViewStyle={styles.buttonContainer}
-					buttonStyle={styles.button}
 					textStyle={{ color: this.state.cleared ? lightGray : white }}
 					title="Clear Local Storage"
 					large
-					raised
+					raised={true}
 					onPress={this.clearAsyncStorage}
 				/>
 			</View>

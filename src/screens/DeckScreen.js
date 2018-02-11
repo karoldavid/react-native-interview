@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Dimensions, Text, View } from "react-native";
-import { Button, Card, Icon } from "react-native-elements";
+import { Card, Icon } from "react-native-elements";
 import { styles } from "../utils/styles";
 import { blue, white } from "../utils/colors";
 import { IconButton } from "../components/common";
 import * as actions from "../actions";
+import Button from "../components/common/Button";
 
 class DeckScreen extends Component {
 	static navigationOptions = ({ navigation }) => {
@@ -20,7 +21,9 @@ class DeckScreen extends Component {
 				<Text
 					onPress={() => navigation.navigate("addQuestion")}
 					style={{ color: white, paddingRight: 20 }}
-				>Add Question</Text>
+				>
+					Add Question
+				</Text>
 			)
 		};
 	};
@@ -47,17 +50,8 @@ class DeckScreen extends Component {
 				>
 					{questions.length > 0 ? (
 						<Button
-							large
-							icon={{ name: "code" }}
-							backgroundColor={blue}
-							fontFamily="Lato-Regular"
-							buttonStyle={{
-								borderRadius: 0,
-								marginLeft: 0,
-								marginRight: 0,
-								marginTop: 20
-							}}
 							title="Start Quiz"
+							icon={{ name: "code" }}
 							onPress={() => {
 								this.props.selectQuiz({ questions, title });
 								this.props.navigation.navigate("quiz", {
