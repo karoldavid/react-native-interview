@@ -1,3 +1,4 @@
+import { Dimensions } from "react-native";
 import { deepSkyBlue, darkCyan } from "./colors";
 
 export const SLIDE_DATA = [
@@ -39,22 +40,25 @@ export const DECK_FORM_INPUTS = [
 ];
 
 export const QUESTION_FORM_INPUTS = [
-			{
-				label: "Question",
-				placeholder: "question",
-				propName: "question",
-				required: true
-			},
-			{
-				label: "Answer",
-				placeholder: "answer",
-				propName: "answer",
-				required: true
-			},
-			{
-				label: "source",
-				placeholder: "source",
-				propName: "source",
-				required: false
-			}
-		];
+	{
+		label: "Question",
+		placeholder: "question",
+		propName: "question",
+		required: true
+	},
+	{
+		label: "Answer",
+		placeholder: "answer",
+		propName: "answer",
+		required: true
+	},
+	{
+		label: "source",
+		placeholder: "source",
+		propName: "source",
+		required: false
+	}
+];
+
+
+export const SCREEN_WIDTH = Dimensions.get("window").width;

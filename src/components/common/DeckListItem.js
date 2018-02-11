@@ -15,6 +15,8 @@ export default class Item extends PureComponent {
 				avatar={require("../../img/react.png")}
 				onPress={this.props.onPress}
 				containerStyle={styles.listItemContainer}
+				titleStyle={{ fontSize: 20 }}
+				subtitleStyle={{ fontSize: 16 }}
 			/>
 		);
 	}

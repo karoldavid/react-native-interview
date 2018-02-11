@@ -73,7 +73,6 @@ class AddDeckScreen extends Component {
 }
 
 const mapStateToProps = ({ deck }) => {
-	//	console.log(deck)
 	return {
 		deck
 	};

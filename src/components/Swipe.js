@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-	Dimensions,
 	View,
 	Animated,
 	PanResponder,
@@ -9,7 +8,9 @@ import {
 	Platform
 } from "react-native";
 
-const SCREEN_WIDTH = Dimensions.get("window").width;
+import { styles } from "../utils/styles";
+import { SCREEN_WIDTH } from "../utils/consts";
+
 const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
 const SWIPE_OUT_DURATION = 250;
 
@@ -138,12 +139,5 @@ class Swipe extends Component {
 		return <View style={{ flex: 1 }}>{this.renderCards()}</View>;
 	}
 }
-
-const styles = {
-	cardStyle: {
-		position: "absolute",
-		width: SCREEN_WIDTH
-	}
-};
 
 export default Swipe;

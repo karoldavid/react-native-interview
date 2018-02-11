@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
+import { SCREEN_WIDTH } from "./consts";
 import { blue, veryLightGray, white } from "./colors";
 
 export const styles = StyleSheet.create({
@@ -15,7 +16,7 @@ export const styles = StyleSheet.create({
 	},
 	listItemContainer: {
 		borderBottomWidth: 0,
-		width: Dimensions.get("window").width
+		width: SCREEN_WIDTH
 	},
 	iconButton: {
 		paddingLeft: 20,
@@ -24,7 +25,7 @@ export const styles = StyleSheet.create({
 	slideContainer: {
 		justifyContent: "center",
 		alignItems: "center",
-		width: Dimensions.get("window").width
+		width: SCREEN_WIDTH
 	},
 	slideText: {
 		fontSize: 30,
@@ -55,5 +56,9 @@ export const styles = StyleSheet.create({
 		position: "absolute",
 		bottom: 20,
 		right: 0
+	},
+	cardStyle: {
+		position: "absolute",
+		width: SCREEN_WIDTH
 	}
 });
