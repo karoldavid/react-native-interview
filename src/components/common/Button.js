@@ -8,16 +8,20 @@ export default ({
 	icon,
 	onPress,
 	disabled = false,
-	textStyle = {}
+	raised = false,
+	textStyle = {},
+	buttonStyle = {}
 }) => (
 	<Button
+		buttonStyle={{ backgroundColor: blue}}
 		textStyle={textStyle}
 		disabled={disabled}
+		raised={raised}
 		large
 		icon={icon ? icon : null}
 		backgroundColor={blue}
 		fontFamily="Lato-Regular"
-		buttonStyle={styles.button}
+		buttonStyle={[styles.button, buttonStyle]}
 		title={title}
 		onPress={onPress}
 	/>

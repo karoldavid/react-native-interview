@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 import { View, ScrollView, Text } from "react-native";
-import { Button } from "react-native-elements";
 import { styles } from "../utils/styles";
+import Button from "../components/common/Button";
 
 class Slides extends Component {
 	startButton() {
 		return (
 			<Button
-				containerViewStyle={styles.buttonContainer}
-				buttonStyle={styles.button}
 				title="Let's Start!"
-				large
-				raised
+				raised={true}
 				onPress={this.props.onComplete}
+				buttonStyle={{ marginTop: 0 }}
 			/>
 		);
 	}
@@ -37,7 +35,6 @@ class Slides extends Component {
 	}
 
 	render() {
-		const { data } = this.props;
 		return (
 			<ScrollView horizontal pagingEnabled style={{ flex: 1 }}>
 				{this.renderSlides()}

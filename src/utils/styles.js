@@ -33,9 +33,6 @@ export const styles = StyleSheet.create({
 		textAlign: "center",
 		color: white
 	},
-	buttonContainer: {
-		marginTop: 15
-	},
 	button: {
 		borderRadius: 0,
 		marginLeft: 0,

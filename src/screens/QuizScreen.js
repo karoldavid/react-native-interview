@@ -33,7 +33,7 @@ class QuizScreen extends Component {
 				backgroundColor: blue
 			},
 			headerTitleStyle: { textAlign: "center", alignSelf: "center" },
-			tabBarLabel: 'Quiz'
+			tabBarLabel: "Quiz"
 		};
 	};
 
@@ -76,6 +76,7 @@ class QuizScreen extends Component {
 								: "Show Answer"
 						}
 						onPress={this.toggleAnswer}
+						buttonStyle={{ marginTop: 0 }}
 					/>
 				</View>
 				{this.state.show &&
