@@ -6,6 +6,7 @@ import QuizScreen from "../screens/QuizScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import AddDeckScreen from "../screens/AddDeckScreen";
 import AddQuestionScreen from "../screens/AddQuestionScreen";
+import { blue, white } from "./colors";
 
 export const MainNavigator = TabNavigator(
   {
@@ -37,10 +38,10 @@ export const MainNavigator = TabNavigator(
     tabBarPosition: "bottom",
     lazy: true,
     tabBarOptions: {
-      activeTintColor: "white",
+      activeTintColor: white,
       style: {
         height: 56,
-        backgroundColor: "blue",
+        backgroundColor: blue,
         shadowColor: "rgba(0, 0, 0, 0.24)",
         shadowOffset: {
           width: 0,

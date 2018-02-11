@@ -14,7 +14,7 @@ import { styles } from "../utils/styles";
 import Swipe from "../components/Swipe";
 import { Button, Card, Icon } from "react-native-elements";
 import * as actions from "../actions";
-import { deepSkyBlue } from "../utils/colors";
+import { blue, red, white } from "../utils/colors";
 
 const SCREEN_HEIGHT = Dimensions.get("screen").height;
 
@@ -28,9 +28,9 @@ class QuizScreen extends Component {
 			title: `Quiz ${navigation.state.params.title}`,
 			visible: true,
 			headerLeft: null,
-			headerTintColor: "white",
+			headerTintColor: white,
 			headerStyle: {
-				backgroundColor: "blue"
+				backgroundColor: blue
 			}
 		};
 	};
@@ -64,7 +64,7 @@ class QuizScreen extends Component {
 				<View style={{ marginTop: 10, marginBottom: 10 }}>
 					<Button
 						large
-						backgroundColor={deepSkyBlue}
+						backgroundColor={blue}
 						title={
 							this.state.show && show
 								? "Hide Answer"
@@ -84,7 +84,7 @@ class QuizScreen extends Component {
 									style={{
 										textAlign: "center",
 										marginTop: 10,
-										color: "blue"
+										color: blue
 									}}
 									onPress={() => this.goToSource(source)}
 								>
@@ -95,7 +95,7 @@ class QuizScreen extends Component {
 									style={{
 										textAlign: "center",
 										marginTop: 10,
-										color: "red"
+										color: red
 									}}
 								>
 									Source Unknown
@@ -127,7 +127,7 @@ class QuizScreen extends Component {
 					large
 					title="Restart Quiz"
 					icon={{ name: "done" }}
-					backgroundColor={deepSkyBlue}
+					backgroundColor={blue}
 					onPress={() => {
 						this.props.restartQuiz();
 					}}
@@ -136,7 +136,7 @@ class QuizScreen extends Component {
 					large
 					title="Back to Decks"
 					icon={{ name: "done" }}
-					backgroundColor={deepSkyBlue}
+					backgroundColor={blue}
 					onPress={() => {
 						this.props.navigation.navigate("decks");
 						this.props.resetQuiz();

@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { pacificBlue } from "./colors";
+import { blue, veryLightGray, white } from "./colors";
 
 export const styles = StyleSheet.create({
 	container: {
@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
 	listItemSeperator: {
 		height: 1,
 		width: "86%",
-		backgroundColor: "#CED0CE",
+		backgroundColor: veryLightGray,
 		marginLeft: "14%"
 	},
 	listItemContainer: {
@@ -29,18 +29,18 @@ export const styles = StyleSheet.create({
 	slideText: {
 		fontSize: 30,
 		textAlign: "center",
-		color: "white"
+		color: white
 	},
 	buttonContainer: {
 		marginTop: 15
 	},
 	button: {
-		backgroundColor: pacificBlue
+		backgroundColor: blue
 	},
 	quizContainer: {
 		marginTop: 10,
 		flex: 1,
-		backgroundColor: "#fff"
+		backgroundColor: white
 	},
 	detailWrapper: {
 		flexDirection: "row",

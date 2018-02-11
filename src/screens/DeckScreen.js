@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Dimensions, Text, View } from "react-native";
 import { Button, Card, Icon } from "react-native-elements";
 import { styles } from "../utils/styles";
-import { white } from "../utils/colors";
+import { blue, white } from "../utils/colors";
 import { IconButton } from "../components/common";
 import * as actions from "../actions";
 
@@ -12,9 +12,9 @@ class DeckScreen extends Component {
 		return {
 			title: "Deck",
 			visible: true,
-			headerTintColor: "white",
+			headerTintColor: white,
 			headerStyle: {
-				backgroundColor: "blue"
+				backgroundColor: blue
 			},
 			headerRight: (
 				<IconButton
@@ -51,7 +51,7 @@ class DeckScreen extends Component {
 						<Button
 							large
 							icon={{ name: "code" }}
-							backgroundColor="#03A9F4"
+							backgroundColor={blue}
 							fontFamily="Lato-Regular"
 							buttonStyle={{
 								borderRadius: 0,
