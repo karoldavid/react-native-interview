@@ -8,20 +8,21 @@ import {
 } from "react-native";
 import { Button, Icon } from "react-native-elements";
 import { styles } from "../utils/styles";
-import { blueMagenta } from "../utils/colors";
+import { blue, white } from "../utils/colors";
 import Form from "../components/common/Form";
 import * as actions from "../actions";
 import { NavigationActions } from "react-navigation";
 import { submit, validate } from "../utils/helpers";
+import { QUESTION_FORM_INPUTS as FORM_INPUTS } from "../utils/consts";
 
 class AddQuestionScreen extends Component {
 	static navigationOptions = ({ navigation }) => {
 		return {
-			title: "Add A New Question",
+			title: "Add Question",
 			visible: true,
-			headerTintColor: "white",
+			headerTintColor: white,
 			headerStyle: {
-				backgroundColor: "blue"
+				backgroundColor: blue
 			}
 		};
 	};
@@ -30,27 +31,6 @@ class AddQuestionScreen extends Component {
 	};
 
 	render() {
-		const FORM_INPUTS = [
-			{
-				label: "Question",
-				placeholder: "question",
-				propName: "question",
-				required: true
-			},
-			{
-				label: "Answer",
-				placeholder: "answer",
-				propName: "answer",
-				required: true
-			},
-			{
-				label: "source",
-				placeholder: "source",
-				propName: "source",
-				required: false
-			}
-		];
-
 		const { question, uid } = this.props;
 
 		const errors = validate(question, FORM_INPUTS);
@@ -70,7 +50,7 @@ class AddQuestionScreen extends Component {
 							<Button
 								disabled={!submitForm}
 								title="Submit"
-								backgroundColor={blueMagenta}
+								backgroundColor={blue}
 								containerViewStyle={{
 									marginTop: 15,
 									marginBottom: 15

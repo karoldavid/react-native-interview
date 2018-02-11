@@ -17,12 +17,10 @@ class DeckScreen extends Component {
 				backgroundColor: blue
 			},
 			headerRight: (
-				<IconButton
+				<Text
 					onPress={() => navigation.navigate("addQuestion")}
-					ionicon="md-add-circle"
-					size={30}
-					color={white}
-				/>
+					style={{ color: white, paddingRight: 20 }}
+				>Add Question</Text>
 			)
 		};
 	};

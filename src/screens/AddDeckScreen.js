@@ -8,19 +8,20 @@ import {
 } from "react-native";
 import { Button, Icon } from "react-native-elements";
 import { styles } from "../utils/styles";
-import { blueMagenta } from "../utils/colors";
+import { blue } from "../utils/colors";
 import Form from "../components/common/Form";
 import * as actions from "../actions";
 import { submit, validate } from "../utils/helpers";
+import { DECK_FORM_INPUTS as FORM_INPUTS } from "../utils/consts";
 
 class AddDeckScreen extends Component {
 	static navigationOptions = ({ navigation }) => {
 		return {
 			title: "Add A New Deck",
 			visible: true,
-			headerTintColor: "white",
+			headerTintColor: white,
 			headerStyle: {
-				backgroundColor: "blue"
+				backgroundColor: blue
 			}
 		};
 	};
@@ -30,26 +31,11 @@ class AddDeckScreen extends Component {
 	};
 
 	render() {
-		const FORM_INPUTS = [
-			{
-				label: "Deck Title",
-				placeholder: "deck title",
-				propName: "title",
-				required: true
-			},
-			{
-				label: "Image Url",
-				placeholder: "image url",
-				propName: "imageUrl",
-				required: false
-			}
-		];
-
 		const { deck } = this.props;
 
 		const errors = validate(deck, FORM_INPUTS);
 		const submitForm = submit(deck, FORM_INPUTS, errors);
-		
+
 		return (
 			<View style={styles.container}>
 				<KeyboardAvoidingView behavior="padding">
@@ -64,7 +50,7 @@ class AddDeckScreen extends Component {
 							<Button
 								disabled={!submitForm}
 								title="Submit"
-								backgroundColor={blueMagenta}
+								backgroundColor={blue}
 								containerViewStyle={{
 									marginTop: 15,
 									marginBottom: 15
@@ -72,11 +58,10 @@ class AddDeckScreen extends Component {
 								icon={{ name: "send" }}
 								onPress={() => {
 									//this.props.saveDeck(deck);
-									
+
 									this.props.createDeck(deck, () => {
-									 	this.props.navigation.navigate("decks");
-									})
-									
+										this.props.navigation.navigate("decks");
+									});
 								}}
 							/>
 						</TouchableOpacity>
@@ -88,7 +73,7 @@ class AddDeckScreen extends Component {
 }
 
 const mapStateToProps = ({ deck }) => {
-//	console.log(deck)
+	//	console.log(deck)
 	return {
 		deck
 	};
