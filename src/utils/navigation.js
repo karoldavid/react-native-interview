@@ -11,7 +11,7 @@ import { blue, white } from "./colors";
 export const MainNavigator = TabNavigator(
   {
     Welcome: { screen: WelcomeScreen },
-    decks: {
+    Interview: {
       screen: StackNavigator(
         {
           decks: { screen: DeckListScreen },

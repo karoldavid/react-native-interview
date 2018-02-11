@@ -6,7 +6,8 @@ export const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: "center",
-		alignItems: "center"
+		alignItems: "center",
+		backgroundColor: veryLightGray
 	},
 	listItemSeperator: {
 		height: 1,
@@ -43,7 +44,7 @@ export const styles = StyleSheet.create({
 	},
 	quizContainer: {
 		flex: 1,
-		backgroundColor: white
+		backgroundColor: veryLightGray
 	},
 	detailWrapper: {
 		flexDirection: "row",

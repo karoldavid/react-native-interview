@@ -8,13 +8,11 @@ export default ({
 	icon,
 	onPress,
 	disabled = false,
-	raised = false,
 	textStyle = {}
 }) => (
 	<Button
 		textStyle={textStyle}
 		disabled={disabled}
-		raised={raised}
 		large
 		icon={icon ? icon : null}
 		backgroundColor={blue}
