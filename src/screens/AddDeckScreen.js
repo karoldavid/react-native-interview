@@ -18,7 +18,7 @@ import Button from "../components/common/Button";
 class AddDeckScreen extends Component {
 	static navigationOptions = ({ navigation }) => {
 		return {
-			title: "Add A New Deck",
+			title: "Add A Deck",
 			visible: true,
 			headerTintColor: white,
 			headerStyle: {

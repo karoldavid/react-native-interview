@@ -8,21 +8,31 @@ export const validate = (data, inputs) => {
 		const { propName, required } = input;
 		const value = data[propName];
 
-		if (propName === "title" && value && value.length < 3) {
-			errors[propName] = "Can not be shorter than three characters";
-		}
-
-		if (propName === "question" && value && value.length < 10) {
-			errors[propName] = "Can not be shorter than ten characters";
-		}
-
-		if (propName === "answer" && value && value.length < 10) {
-			errors[propName] = "Can not be shorter than ten characters";
-		}
-
-		if (propName === "title" && value && value.length < 3) {
+		if (
+			propName === "question" &&
+			value &&
+			(value.length < 10 || value.length > 100)
+		) {
 			errors[propName] =
-				"Can not be shorter than three and longer than 30 characters";
+				"Can not be shorter than ten and longer than 100 characters";
+		}
+
+		if (
+			propName === "answer" &&
+			value &&
+			(value.length < 10 || value.length > 500)
+		) {
+			errors[propName] =
+				"Can not be shorter than ten and longer than 500 characters";
+		}
+
+		if (
+			propName === "title" &&
+			value &&
+			(value.length < 3 || value.length > 20)
+		) {
+			errors[propName] =
+				"Can not be shorter than three and longer than 20 characters";
 		}
 
 		if (propName === "imageUrl" && value) {

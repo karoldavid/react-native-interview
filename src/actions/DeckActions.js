@@ -1,4 +1,10 @@
-import { DECK_SELECT, DECK_CHANGE, DECK_CREATE, DECKS_FETCH, DECKS_FETCH_SUCCESS } from "./types";
+import {
+	DECK_SELECT,
+	DECK_CHANGE,
+	DECK_CREATE,
+	DECKS_FETCH,
+	DECKS_FETCH_SUCCESS
+} from "./types";
 import firebase from "firebase";
 
 export const selectDeck = deck => {
