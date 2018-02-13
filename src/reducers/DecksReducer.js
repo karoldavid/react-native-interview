@@ -5,7 +5,6 @@ import {
 	DECKS_FETCH,
 	DECKS_FETCH_SUCCESS
 } from "../actions/types";
-import { makeList } from "../utils/helpers";
 
 const INITIAL_STATE = {
 	list: [],
@@ -28,7 +27,7 @@ export default function(state = INITIAL_STATE, action) {
 		case DECKS_FETCH_SUCCESS:
 			return {
 				...state,
-				list: makeList(action.payload),
+				list: action.payload,
 				loading: false
 			};
 		default:

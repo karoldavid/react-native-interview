@@ -1,11 +1,6 @@
-import {
-	DECK_SELECT,
-	DECK_CHANGE,
-	DECK_CREATE,
-	DECKS_FETCH,
-	DECKS_FETCH_SUCCESS
-} from "./types";
+import { DECK_SELECT, DECK_CHANGE, DECK_CREATE, DECKS_FETCH, DECKS_FETCH_SUCCESS } from "./types";
 import firebase from "firebase";
+import { makeList } from "../utils/helpers";
 
 export const selectDeck = deck => {
 	return {
@@ -43,7 +38,7 @@ export const decksFetch = () => {
 			.on("value", snapshot => {
 				dispatch({
 					type: DECKS_FETCH_SUCCESS,
-					payload: snapshot.val()
+					payload:  makeList(snapshot.val())
 				});
 			});
 	};

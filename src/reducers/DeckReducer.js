@@ -2,7 +2,7 @@ import { DECK_CREATE, DECK_CHANGE } from "../actions/types";
 
 const INITIAL_STATE = {
 	title: "",
-	imageUrl: "https://raw.githubusercontent.com/reactjs/redux/master/logo/logo.png",
+	imageUrl: "https://goo.gl/7ZS1HE",
 	questions: []
 };
 
