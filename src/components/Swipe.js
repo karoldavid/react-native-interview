@@ -4,15 +4,15 @@ import {
 	Animated,
 	PanResponder,
 	LayoutAnimation,
-	UIManager,
-	Platform
+	UIManager
 } from "react-native";
 
 import { styles } from "../utils/styles";
-import { SCREEN_WIDTH } from "../utils/consts";
-
-const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
-const SWIPE_OUT_DURATION = 250;
+import {
+	SCREEN_WIDTH,
+	SWIPE_THRESHOLD,
+	SWIPE_OUT_DURATION
+} from "../utils/consts";
 
 class Swipe extends Component {
 	static defaultProps = {
@@ -44,15 +44,8 @@ class Swipe extends Component {
 
 		this.state = {
 			panResponder,
-			position,
-			index: this.props.index
+			position
 		};
-	}
-
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.index < this.props.index) {
-			this.setState({ index: nextProps.index });
-		}
 	}
 
 	componentWillUpdate() {
@@ -70,12 +63,11 @@ class Swipe extends Component {
 	}
 
 	onSwipeComplete(direction) {
-		const { onSwipeLeft, onSwipeRight, data } = this.props;
-		const item = data[this.state.index];
+		const { onSwipeLeft, onSwipeRight, data, index } = this.props;
+		const item = data[index];
 
 		direction === "right" ? onSwipeRight(item) : onSwipeLeft(item);
 		this.state.position.setValue({ x: 0, y: 0 });
-		this.setState({ index: this.state.index + 1 });
 	}
 
 	resetPosition() {
@@ -98,13 +90,11 @@ class Swipe extends Component {
 	}
 
 	renderCards() {
-		if (this.state.index >= this.props.data.length)
-			return this.props.renderNoMoreCards()
-	;	const { keyProp } = this.props;
-
-		const deck = this.props.data.map((item, i) => {
-			if (i < this.state.index) return null;
-			if (i === this.state.index) {
+		const { index, data, keyProp } = this.props;
+		if (index >= data.length) return this.props.renderNoMoreCards();
+		const deck = data.map((item, i) => {
+			if (i < index) return null;
+			if (i === index) {
 				return (
 					<Animated.View
 						key={item[keyProp]}
@@ -122,17 +112,14 @@ class Swipe extends Component {
 			return (
 				<Animated.View
 					key={item[keyProp]}
-					style={[
-						styles.card,
-						{ top: 10 * (i - this.state.index), zIndex: -i }
-					]}
+					style={[styles.card, { top: 10 * (i - index), zIndex: -i }]}
 				>
 					{this.props.renderCard(item)}
 				</Animated.View>
 			);
 		});
 
-		return Platform.OS === "android" ? deck : deck.reverse();
+		return deck;
 	}
 
 	render() {

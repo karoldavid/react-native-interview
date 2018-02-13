@@ -64,3 +64,5 @@ export const QUESTION_FORM_INPUTS = [
 
 export const SCREEN_WIDTH = Dimensions.get("window").width;
 export const SCREEN_HEIGHT = Dimensions.get("window").height;
+export const SWIPE_THRESHOLD = 0.25 * SCREEN_WIDTH;
+export const SWIPE_OUT_DURATION = 250;
