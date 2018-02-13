@@ -25,7 +25,7 @@ class QuizScreen extends Component {
 	};
 	static navigationOptions = ({ navigation }) => {
 		return {
-			title: `Quiz ${navigation.state.params.title}`,
+			title: navigation.state.params.title,
 			visible: true,
 			headerLeft: null,
 			headerTintColor: white,
