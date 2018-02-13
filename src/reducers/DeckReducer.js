@@ -2,7 +2,6 @@ import { DECK_CREATE, DECK_CHANGE } from "../actions/types";
 
 const INITIAL_STATE = {
 	title: "",
-	imageUrl: "https://goo.gl/7ZS1HE",
 	questions: []
 };
 

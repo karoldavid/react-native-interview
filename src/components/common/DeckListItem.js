@@ -5,13 +5,14 @@ import { styles } from "../../utils/styles";
 export default class Item extends PureComponent {
 	render() {
 		const { title, questions } = this.props.item;
-
 		return (
 			<ListItem
 				roundAvatar
 				keyExtractor={title}
 				title={title}
-				subtitle={`${questions.length} ${questions.length === 1 ? "Question" : "Questions"}`}
+				subtitle={`${questions.length} ${
+					questions.length === 1 ? "Question" : "Questions"
+				}`}
 				avatar={require("../../img/react.png")}
 				onPress={this.props.onPress}
 				containerStyle={styles.listItemContainer}

@@ -7,20 +7,28 @@ export const SLIDE_DATA = [
 		color: deepSkyBlue
 	},
 	{
-		text: "Test your knowledge",
+		text: "Test your React and React Ecosystem knowledge",
 		color: darkCyan
 	},
 	{
-		text: "Swipe the flashcards to the left or to the right",
+		text: "Do you know the answer?",
+		color: deepSkyBlue
+	},
+	{
+		text: "Swipe the flashcard to the right",
+		color: darkCyan
+	},
+	{
+		text: "Otherwise, swipe the flashcard to the left",
 		color: deepSkyBlue
 	},
 	{
 		text: "Add new decks and cards to a shared database",
-		color: deepSkyBlue
+		color: darkCyan
 	},
 	{
 		text: "",
-		color: darkCyan
+		color: deepSkyBlue
 	}
 ];
 
@@ -30,12 +38,6 @@ export const DECK_FORM_INPUTS = [
 		placeholder: "deck title",
 		propName: "title",
 		required: true
-	},
-	{
-		label: "Image Url",
-		placeholder: "image url",
-		propName: "imageUrl",
-		required: false
 	}
 ];
 
@@ -59,7 +61,6 @@ export const QUESTION_FORM_INPUTS = [
 		required: false
 	}
 ];
-
 
 export const SCREEN_WIDTH = Dimensions.get("window").width;
 export const SCREEN_HEIGHT = Dimensions.get("window").height;
