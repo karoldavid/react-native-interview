@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { ToastAndroid, AsyncStorage, View } from "react-native";
 import { styles } from "../utils/styles";
 import { lightGray, white } from "../utils/colors";
 import Button from "../components/common/Button";
+import * as actions from "../actions";
 
 class SettingsScreen extends Component {
 	state = {
@@ -22,6 +24,7 @@ class SettingsScreen extends Component {
 			50
 		);
 		this.props.navigation.navigate("decks");
+		this.props.resetQuiz();
 	};
 
 	render() {
@@ -42,4 +45,4 @@ class SettingsScreen extends Component {
 	}
 }
 
-export default SettingsScreen;
+export default connect(null, actions)(SettingsScreen);
