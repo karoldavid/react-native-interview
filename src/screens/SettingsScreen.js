@@ -31,6 +31,7 @@ class SettingsScreen extends Component {
 					textStyle={{
 						color: this.state.cleared ? lightGray : white
 					}}
+					icon={{ name: "storage" }}
 					title="Clear Local Storage"
 					raised={true}
 					onPress={this.clearAsyncStorage}

@@ -51,7 +51,7 @@ class DeckScreen extends Component {
 					{questions.length > 0 ? (
 						<Button
 							title="Start Quiz"
-							icon={{ name: "code" }}
+							icon={{ name: "play-arrow" }}
 							onPress={() => {
 								this.props.selectQuiz({ questions, title });
 								this.props.navigation.navigate("quiz", {

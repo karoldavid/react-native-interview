@@ -134,14 +134,14 @@ class QuizScreen extends Component {
 				</View>
 				<Button
 					title="Restart Quiz"
-					icon={{ name: "done" }}
+					icon={{ name: "redo" }}
 					onPress={() => {
 						this.props.restartQuiz();
 					}}
 				/>
 				<Button
 					title="Back to Decks"
-					icon={{ name: "done" }}
+					icon={{ name: "arrow-back" }}
 					onPress={() => {
 						this.props.navigation.navigate("decks");
 						this.props.resetQuiz();

@@ -7,7 +7,8 @@ class Slides extends Component {
 	startButton() {
 		return (
 			<Button
-				title="Let's Start!"
+				title="Let's Start Playing!"
+				icon={{ name: "play-arrow" }}
 				raised={true}
 				onPress={this.props.onComplete}
 				buttonStyle={{ marginTop: 0 }}
