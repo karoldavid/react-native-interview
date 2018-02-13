@@ -29,7 +29,7 @@ export const MainNavigator = TabNavigator(
         }
       )
     },
-    settings: { screen: SettingsScreen }
+    Settings: { screen: SettingsScreen }
   },
   {
     navigationOptions: {
@@ -39,6 +39,7 @@ export const MainNavigator = TabNavigator(
     lazy: true,
     tabBarOptions: {
       activeTintColor: white,
+      upperCaseLabel: false,
       style: {
         height: 56,
         backgroundColor: blue,
