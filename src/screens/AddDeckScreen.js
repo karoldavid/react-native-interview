@@ -4,7 +4,8 @@ import {
 	KeyboardAvoidingView,
 	ScrollView,
 	TouchableOpacity,
-	View
+	View,
+	ToastAndroid
 } from "react-native";
 import { Icon } from "react-native-elements";
 import { styles } from "../utils/styles";
@@ -54,6 +55,13 @@ class AddDeckScreen extends Component {
 								icon={{ name: "send" }}
 								onPress={() => {
 									this.props.createDeck(deck, () => {
+										ToastAndroid.showWithGravityAndOffset(
+											"Deck successfully added to database",
+											ToastAndroid.LONG,
+											ToastAndroid.BOTTOM,
+											25,
+											50
+										);
 										this.props.navigation.navigate("decks");
 									});
 								}}

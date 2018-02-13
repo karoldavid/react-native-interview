@@ -19,6 +19,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@prince8verma/react-native-snackbar": "^1.2.2",
     "expo": "^23.0.4",
     "firebase": "^4.9.0",
     "lodash": "^4.17.4",

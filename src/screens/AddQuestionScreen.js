@@ -4,7 +4,8 @@ import {
 	KeyboardAvoidingView,
 	ScrollView,
 	TouchableOpacity,
-	View
+	View,
+	ToastAndroid
 } from "react-native";
 import { Icon } from "react-native-elements";
 import { styles } from "../utils/styles";
@@ -53,11 +54,17 @@ class AddQuestionScreen extends Component {
 								title="Submit"
 								icon={{ name: "send" }}
 								onPress={() => {
-									//this.props.saveQuestion(question);
 									this.props.createQuestion(
 										question,
 										uid,
 										() => {
+											ToastAndroid.showWithGravityAndOffset(
+												"Question successfully added to database",
+												ToastAndroid.LONG,
+												ToastAndroid.BOTTOM,
+												25,
+												50
+											);
 											this.props.navigation.goBack();
 										}
 									);

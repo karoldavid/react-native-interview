@@ -13,7 +13,6 @@ export default ({
 	buttonStyle = {}
 }) => (
 	<Button
-		buttonStyle={{ backgroundColor: blue}}
 		textStyle={textStyle}
 		disabled={disabled}
 		raised={raised}

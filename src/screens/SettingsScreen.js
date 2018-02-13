@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Alert, AsyncStorage, View } from "react-native";
+import { ToastAndroid, AsyncStorage, View } from "react-native";
 import { styles } from "../utils/styles";
 import { lightGray, white } from "../utils/colors";
 import Button from "../components/common/Button";
@@ -14,12 +14,14 @@ class SettingsScreen extends Component {
 
 		this.setState({ cleared: true });
 
-		Alert.alert("", "Local Storage Cleared", [
-			{
-				text: "OK",
-				onPress: () => this.props.navigation.navigate("decks")
-			}
-		]);
+		ToastAndroid.showWithGravityAndOffset(
+			"Local Storage Cleared",
+			ToastAndroid.LONG,
+			ToastAndroid.BOTTOM,
+			25,
+			50
+		);
+		this.props.navigation.navigate("decks");
 	};
 
 	render() {
