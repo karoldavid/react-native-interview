@@ -1,5 +1,19 @@
 {
-  "expo": {
-    "sdkVersion": "23.0.0"
-  }
+	"expo": {
+		"sdkVersion": "23.0.0",
+		"orientation": "portrait",
+		"name": "ReactInterview",
+		"description": "Prepare your Reactjs Interview",
+		"slug": "reactinterview",
+		"version": "1.0",
+		"icon":
+			"https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+		"notification": {
+			"icon":
+				"https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+		},
+		"android": {
+			"package": "org.reactinterview.exp"
+		}
+	}
 }
