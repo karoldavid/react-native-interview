@@ -6,11 +6,9 @@
 		"description": "Prepare your Reactjs Interview",
 		"slug": "reactinterview",
 		"version": "1.0",
-		"icon":
-			"https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+		"icon": "src/img/react.png",
 		"notification": {
-			"icon":
-				"https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+			"icon": "src/img/react-notification-icon.png"
 		},
 		"android": {
 			"package": "org.reactinterview.exp"

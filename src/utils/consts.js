@@ -4,31 +4,31 @@ import { deepSkyBlue, darkCyan } from "./colors";
 export const SLIDE_DATA = [
 	{
 		text: "Welcome to React Interview",
-		color: deepSkyBlue
+		color: darkCyan
 	},
 	{
 		text: "Test your React and React Ecosystem knowledge",
-		color: darkCyan
+		color: deepSkyBlue
 	},
 	{
 		text: "Do you know the answer?",
-		color: deepSkyBlue
+		color: darkCyan
 	},
 	{
 		text: "Swipe the flashcard to the right",
-		color: darkCyan
+		color: deepSkyBlue
 	},
 	{
 		text: "Otherwise, swipe the flashcard to the left",
-		color: deepSkyBlue
-	},
-	{
-		text: "Add new decks and cards to a shared database",
 		color: darkCyan
 	},
 	{
-		text: "",
+		text: "Add new decks and cards to a shared database",
 		color: deepSkyBlue
+	},
+	{
+		text: "",
+		color: darkCyan
 	}
 ];
 
