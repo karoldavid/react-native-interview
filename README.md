@@ -1,8 +1,10 @@
 # React Native Interview Training App
 
-Work in progress...
+Here is a link to the expo app: https://exp.host/@karoldavid/reactinterview
 
-![Image Showing FlatList With Quiz Titles and Number of Questions on a Google Pixel Device](flatList.jpg)
+![Image Showing Welcome Screen](src/img/react-interview-welcome-slide-screenshot.png)
+![Image Showing Deck List](src/img/react-interview-deck-list-screenshot.png)
+![Image Showing Flashcard Swipe to the Right](src/img/react-interview-swipe-card-screenshot.png)
 
 ## Getting Started
 
