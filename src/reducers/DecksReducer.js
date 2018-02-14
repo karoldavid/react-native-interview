@@ -9,7 +9,9 @@ import {
 const INITIAL_STATE = {
 	list: [],
 	loading: false,
-	selected: null
+	selected: null,
+	orderBy: "title",
+	sortDirection: "asc"
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -27,7 +29,11 @@ export default function(state = INITIAL_STATE, action) {
 		case DECKS_FETCH_SUCCESS:
 			return {
 				...state,
-				list: action.payload,
+				list: _.orderBy(
+					action.payload,
+					[deck => deck[state.orderBy].toLowerCase()],
+					[state.sortDirection]
+				),
 				loading: false
 			};
 		default:
