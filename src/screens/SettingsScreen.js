@@ -5,6 +5,8 @@ import { styles } from "../utils/styles";
 import { lightGray, white } from "../utils/colors";
 import Button from "../components/common/Button";
 import * as actions from "../actions";
+import { persistStore } from "redux-persist";
+import store from "../store";
 
 class SettingsScreen extends Component {
 	state = {
@@ -12,7 +14,9 @@ class SettingsScreen extends Component {
 	};
 
 	clearAsyncStorage = async () => {
-		await AsyncStorage.clear();
+		await persistStore(store, {
+			storage: AsyncStorage
+		}).purge();
 
 		this.setState({ cleared: true });
 
@@ -24,7 +28,6 @@ class SettingsScreen extends Component {
 			50
 		);
 		this.props.navigation.navigate("decks");
-		this.props.resetQuiz();
 	};
 
 	render() {

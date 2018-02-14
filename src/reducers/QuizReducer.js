@@ -5,6 +5,7 @@ import {
 	QUIZ_RESTART
 } from "../actions/types";
 import { shuffle } from "../utils/helpers";
+import { REHYDRATE } from "redux-persist/constants";
 
 const INITIAL_STATE = {
 	know: [],
@@ -44,6 +45,9 @@ export default function(state = INITIAL_STATE, action) {
 			};
 
 		case QUIZ_RESET:
+			return INITIAL_STATE;
+
+		case REHYDRATE:
 			return INITIAL_STATE;
 		default:
 			return state;

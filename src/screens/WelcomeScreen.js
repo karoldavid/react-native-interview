@@ -1,5 +1,6 @@
 import _ from "lodash";
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { StyleSheet, View, Text, AsyncStorage } from "react-native";
 import { styles } from "../utils/styles";
 import { SLIDE_DATA } from "../utils/consts";
@@ -10,18 +11,28 @@ class WelcomeScreen extends Component {
 		this._goToWelcomeScreen();
 	}
 
+	navigate = () => {
+		const { questions, title } = this.props.quiz;
+
+		if (questions.length === 0) {
+			this.props.navigation.navigate("decks");
+		} else {
+			this.props.navigation.navigate("quiz", { title });
+		}
+	};
+
 	async _goToWelcomeScreen() {
 		let visited = await AsyncStorage.getItem("visited");
 
 		if (visited) {
-			this.props.navigation.navigate("decks");
+			this.navigate();
 		} else {
 			AsyncStorage.setItem("visited", JSON.stringify({ visited: true }));
 		}
 	}
 
 	onSlidesComplete = () => {
-		this.props.navigation.navigate("decks");
+		this.navigate();
 	};
 
 	render() {
@@ -33,4 +44,10 @@ class WelcomeScreen extends Component {
 	}
 }
 
-export default WelcomeScreen;
+const mapStateToProps = ({ quiz }) => {
+	return {
+		quiz
+	};
+};
+
+export default connect(mapStateToProps)(WelcomeScreen);
